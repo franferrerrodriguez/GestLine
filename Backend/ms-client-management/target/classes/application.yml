@@ -1,0 +1,16 @@
+# Config
+spring:
+     # Spring Application Config
+     application:
+          name: ms-client-management
+     # Spring Cloud Config
+     cloud:
+          config:
+               uri: http://localhost:8888
+          
+server:
+     port: 8001
+
+info.app.name: ms-client-management
+info.app.description: Microservices with Spring Boot and Spring Cloud - ms-client-management
+info.app.version: 0.0.1-SNAPSHOT
