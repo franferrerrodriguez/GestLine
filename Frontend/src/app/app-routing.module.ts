@@ -6,14 +6,15 @@ import { ConsumptionComponent }      from './components/consumption/consumption.
 import { InvoicesComponent }      from './components/invoices/invoices.component';
 import { ServicesComponent }      from './components/services/services.component';
 import { SettingsComponent }      from './components/settings/settings.component';
+import { AuthGuard } from './components/auth/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'lines-dashboard', component: LinesDashboardComponent },
-  { path: 'consumption', component: ConsumptionComponent },
-  { path: 'invoices', component: InvoicesComponent },
-  { path: 'services', component: ServicesComponent },
-  { path: 'settings', component: SettingsComponent },
+  { path: 'lines-dashboard', component: LinesDashboardComponent, canActivate:[AuthGuard] },
+  { path: 'consumption', component: ConsumptionComponent, canActivate:[AuthGuard] },
+  { path: 'invoices', component: InvoicesComponent, canActivate:[AuthGuard] },
+  { path: 'services', component: ServicesComponent, canActivate:[AuthGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'lines-dashboard' }
 ];
 
