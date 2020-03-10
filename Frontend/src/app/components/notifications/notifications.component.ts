@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  selector: 'app-notifications',
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.css']
 })
-export class SettingsComponent implements OnInit {
+export class NotificationsComponent implements OnInit {
 
   public loading:boolean;
 
   constructor() {
     this.loading = true;
-   }
+  }
 
   ngOnInit(): void {
     setTimeout(() => {

@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor() { }
+  public loading:boolean;
+
+  constructor() { 
+    this.loading = true;
+  }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false;
+    }, 500);
   }
 
 }

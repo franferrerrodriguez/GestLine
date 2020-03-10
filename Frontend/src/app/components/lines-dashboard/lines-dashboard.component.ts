@@ -16,7 +16,7 @@ export class LinesDashboardComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.loading = false;
-    }, 1000);
+    }, 500);
   }
 
 }

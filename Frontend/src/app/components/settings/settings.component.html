@@ -1,1 +1,10 @@
-<p>settings works!</p>
+<app-spinner *ngIf="loading" class="spinner"></app-spinner>
+
+<app-twosection *ngIf="!loading">
+    <div content1>
+        Content form parent 1
+    </div>
+    <div content2>
+        Content form parent 2
+    </div>
+</app-twosection>
