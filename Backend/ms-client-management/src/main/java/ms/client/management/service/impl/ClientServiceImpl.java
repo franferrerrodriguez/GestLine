@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import ms.client.management.caller.Caller;
-import ms.client.management.entity.BankAccounts;
+import ms.client.management.entity.Address;
 import ms.client.management.entity.db.Client;
 import ms.client.management.repository.IClientRepository;
 import ms.client.management.service.IClientService;
@@ -36,10 +36,10 @@ public class ClientServiceImpl implements IClientService {
 
 		Client client = clientRepository.findById(id);
 
-		ResponseEntity<List<BankAccounts>> response = this.caller.getApi("http://localhost:8000/nif/" + client.getNif(),
+		/*ResponseEntity<List<Address>> response = this.caller.getApi("http://localhost:8000/nif/" + client.getNif(),
 				HttpMethod.GET);
 
-		client.setBankAccounts(response.getBody());
+		client.setBankAccounts(response.getBody());*/
 
 		return client;
 	}
@@ -48,7 +48,7 @@ public class ClientServiceImpl implements IClientService {
 
 		List<Client> clients = clientRepository.findAll();
 
-		for (Client client : clients) {
+		/*for (Client client : clients) {
 
 			ResponseEntity<List<BankAccounts>> response = this.caller
 					.getApi("http://localhost:8000/nif/" + client.getNif(), HttpMethod.GET);
@@ -56,7 +56,7 @@ public class ClientServiceImpl implements IClientService {
 			System.out.println(response.getStatusCode());
 
 			client.setBankAccounts(response.getBody());
-		}
+		}*/
 
 		return clients;
 	}

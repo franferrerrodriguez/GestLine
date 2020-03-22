@@ -1,14 +1,11 @@
-insert into client(id, name, last_name, nif)
-values(1, '1', '1', '28945234D');
+insert into address(id, type, direction, number, stairs, floor, door, location, province, postal_code, country) 
+values(1, 'Address 1', '', '', '', '', '', '', '', '', '');
 
-insert into client(id, name, last_name, nif)
-values(2, '2', '2', '48233444A');
+insert into address(id, type, direction, number, stairs, floor, door, location, province, postal_code, country) 
+values(2, 'Address 2', '', '', '', '', '', '', '', '', '');
 
-insert into client(id, name, last_name, nif)
-values(3, '3', '3', '44523223J');
+insert into billing(id, country_code, control_digit, entity, office, dc, account, address) 
+values(1, 'Billing 1', '', '', '', '', '', 2);
 
-insert into client(id, name, last_name, nif)
-values(4, '4', '4', '21233345D');
-
-insert into client(id, name, last_name, nif)
-values(5, '5', '5', '62233345H');
+insert into client(document, document_type, client_type, name, first_surname, second_surname, birth_date, email, online_invoice, due, limit_due, blacklist, address, billing) 
+values('48639170N', 'NIF', 'RESIDENCIAL', '', '', '', '', '', 1, 1, 1, 1, 1, 1);

@@ -1,33 +1,74 @@
 package ms.client.management.entity.db;
 
-import java.util.List;
+import java.util.HashMap;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import ms.client.management.entity.BankAccounts;
+import ms.client.management.entity.Address;
+import ms.client.management.entity.Billing;
+import ms.client.management.model.Contract;
 
 @Entity
 @Table(name = "client")
 public class Client {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
+	@Column(name = "document")
+	private String document;
+	
+	@Column(name = "document_type")
+	private String documentType;
+	
+	@Column(name = "client_type")
+	private String clientType;
+	
 	@Column(name = "name")
 	private String name;
+	
+	@Column(name = "first_surname")
+	private String firstSurname;
+	
+	@Column(name = "second_surname")
+	private String secondSurname;
+	
+	@Column(name = "birth_date")
+	private String birthDate;
+	
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "online_invoice")
+	private Boolean onlineInvoice;
+	
+	@Column(name = "due")
+	private Integer due;
+	
+	@Column(name = "limit_due")
+	private Integer limitDue;
+	
+	@Column(name = "blacklist")
+	private Boolean blacklist;
 
-	@Column(name = "last_name")
-	private String lastName;
-
-	@Column(name = "nif")
-	private String nif;
-
-	@Embedded
-	List<BankAccounts> bankAccounts;
+	@OneToOne()
+    @JoinColumn(name = "address")
+	private Address address;
+	
+	@OneToOne()
+	@JoinColumn(name = "billing")
+	private Billing billing;
+	
+	private HashMap<String, Contract> contracts;
 
 	public Client() {
 
@@ -41,6 +82,30 @@ public class Client {
 		this.id = id;
 	}
 
+	public String getDocument() {
+		return document;
+	}
+
+	public void setDocument(String document) {
+		this.document = document;
+	}
+
+	public String getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(String documentType) {
+		this.documentType = documentType;
+	}
+
+	public String getClientType() {
+		return clientType;
+	}
+
+	public void setClientType(String clientType) {
+		this.clientType = clientType;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -49,28 +114,95 @@ public class Client {
 		this.name = name;
 	}
 
-	public String getLast_name() {
-		return lastName;
+	public String getFirstSurname() {
+		return firstSurname;
 	}
 
-	public void setLast_name(String lastName) {
-		this.lastName = lastName;
+	public void setFirstSurname(String firstSurname) {
+		this.firstSurname = firstSurname;
 	}
 
-	public String getNif() {
-		return nif;
+	public String getSecondSurname() {
+		return secondSurname;
 	}
 
-	public void setNif(String nif) {
-		this.nif = nif;
+	public void setSecondSurname(String secondSurname) {
+		this.secondSurname = secondSurname;
 	}
 
-	public List<BankAccounts> getBankAccounts() {
-		return bankAccounts;
+	public String getBirthDate() {
+		return birthDate;
 	}
 
-	public void setBankAccounts(List<BankAccounts> bankAccounts) {
-		this.bankAccounts = bankAccounts;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Boolean getOnlineInvoice() {
+		return onlineInvoice;
+	}
+
+	public void setOnlineInvoice(Boolean onlineInvoice) {
+		this.onlineInvoice = onlineInvoice;
+	}
+
+	public Integer getDue() {
+		return due;
+	}
+
+	public void setDue(Integer due) {
+		this.due = due;
+	}
+
+	public Integer getLimitDue() {
+		return limitDue;
+	}
+
+	public void setLimit(Integer limitDue) {
+		this.limitDue = limitDue;
+	}
+
+	public Boolean getBlacklist() {
+		return blacklist;
+	}
+
+	public void setBlacklist(Boolean blacklist) {
+		this.blacklist = blacklist;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Billing getBilling() {
+		return billing;
+	}
+
+	public void setBilling(Billing billing) {
+		this.billing = billing;
+	}
+
+	public HashMap<String, Contract> getContracts() {
+		contracts = new HashMap<>();
+		Contract c1 = new Contract();
+		contracts.put("638538155", c1);
+		return contracts;
+	}
+
+	public void setContracts(HashMap<String, Contract> contracts) {
+		this.contracts = contracts;
 	}
 
 }
