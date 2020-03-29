@@ -1,29 +1,23 @@
 package ms.client.management.entity.db;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import ms.client.management.entity.Address;
-import ms.client.management.entity.Billing;
-import ms.client.management.model.Contract;
+import ms.client.management.entity.Contract;
 
 @Entity
 @Table(name = "client")
 public class Client {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
-
 	@Column(name = "document")
 	private String document;
 	
@@ -68,18 +62,11 @@ public class Client {
 	@JoinColumn(name = "billing")
 	private Billing billing;
 	
-	private HashMap<String, Contract> contracts;
+	@Transient
+	private List<Contract> contracts;
 
 	public Client() {
 
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getDocument() {
@@ -194,14 +181,14 @@ public class Client {
 		this.billing = billing;
 	}
 
-	public HashMap<String, Contract> getContracts() {
-		contracts = new HashMap<>();
+	public List<Contract> getContracts() {
+		contracts = new ArrayList<>();
 		Contract c1 = new Contract();
-		contracts.put("638538155", c1);
+		contracts.add(c1);
 		return contracts;
 	}
 
-	public void setContracts(HashMap<String, Contract> contracts) {
+	public void setContracts(List<Contract> contracts) {
 		this.contracts = contracts;
 	}
 

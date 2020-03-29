@@ -1,4 +1,4 @@
-package ms.client.management.service.impl;
+package ms.consumption.service.impl;
 
 import java.util.List;
 
@@ -8,25 +8,24 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import ms.client.management.caller.Caller;
-import ms.client.management.entity.db.Address;
-import ms.client.management.entity.db.Client;
-import ms.client.management.repository.IClientRepository;
-import ms.client.management.service.IClientService;
+import ms.consumption.caller.Caller;
+import ms.consumption.entity.db.Consumption;
+import ms.consumption.repository.IConsumptionRepository;
+import ms.consumption.service.IConsumptionService;
 
 @Service
-public class ClientServiceImpl implements IClientService {
+public class ConsumptionServiceImpl implements IConsumptionService {
 
 	@Autowired
 	private Caller caller;
 
 	@Autowired
-	IClientRepository clientRepository;
+	IConsumptionRepository consumptionRepository;
 
 	@Autowired
 	private Environment environment;
 
-	public Client clientById(Long id) throws InterruptedException {
+	public Consumption consumptionByDocument(String document) throws InterruptedException {
 
 		Thread.sleep(0);
 		String port = environment.getProperty("local.server.port");
@@ -34,7 +33,7 @@ public class ClientServiceImpl implements IClientService {
 			Thread.sleep(25000);
 		}
 
-		Client client = clientRepository.findById(id);
+		Consumption client = consumptionRepository.findByDocument(document);
 
 		/*ResponseEntity<List<Address>> response = this.caller.getApi("http://localhost:8000/nif/" + client.getNif(),
 				HttpMethod.GET);
@@ -44,9 +43,9 @@ public class ClientServiceImpl implements IClientService {
 		return client;
 	}
 
-	public List<Client> clientAll() throws InterruptedException {
+	public List<Consumption> consumptionAll() throws InterruptedException {
 
-		List<Client> clients = clientRepository.findAll();
+		List<Consumption> consumptions = consumptionRepository.findAll();
 
 		/*for (Client client : clients) {
 
@@ -58,7 +57,7 @@ public class ClientServiceImpl implements IClientService {
 			client.setBankAccounts(response.getBody());
 		}*/
 
-		return clients;
+		return consumptions;
 	}
 
 }

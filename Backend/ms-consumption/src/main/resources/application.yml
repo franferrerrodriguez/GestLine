@@ -2,14 +2,14 @@
 spring:
      # Spring Application Config
      application:
-          name: ms-authentication
+          name: ms-consumption
      # Spring Cloud Config
      cloud:
           config:
                uri: http://localhost:8888
           
 server:
-     port: 8000
+     port: 8002
 
 info.app.name: @project.name@
 info.app.description: @project.description@
