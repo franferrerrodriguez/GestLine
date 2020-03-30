@@ -1,0 +1,16 @@
+# Config
+spring:
+     # Spring Application Config
+     application:
+          name: ms-invoice
+     # Spring Cloud Config
+     cloud:
+          config:
+               uri: http://localhost:8888
+          
+server:
+     port: 8003
+
+info.app.name: ms-invoice
+info.app.description: Microservices with Spring Boot and Spring Cloud - ms-invoice
+info.app.version: 0.0.1-SNAPSHOT

@@ -1,0 +1,16 @@
+# Config
+spring:
+     # Spring Application Config
+     application:
+          name: ms-consumption
+     # Spring Cloud Config
+     cloud:
+          config:
+               uri: http://localhost:8888
+          
+server:
+     port: 8002
+
+info.app.name: ms-contract
+info.app.description: Microservices with Spring Boot and Spring Cloud - ms-contract
+info.app.version: 0.0.1-SNAPSHOT

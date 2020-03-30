@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import ms.client.management.MsClientManagementApplication;
-import ms.client.management.service.IClientService;
+import ms.client.management.service.IClientManagementService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = MsClientManagementApplication.class)
@@ -20,7 +20,7 @@ public class MsClientManagementApplicationTests {
 	private static final Logger logger = LoggerFactory.getLogger(MsClientManagementApplicationTests.class);
 
 	@Autowired
-	private IClientService hystrixApi;
+	private IClientManagementService hystrixApi;
 
 	@Test
 	public void test() {

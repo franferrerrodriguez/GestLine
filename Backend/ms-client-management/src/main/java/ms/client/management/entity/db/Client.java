@@ -1,17 +1,11 @@
 package ms.client.management.entity.db;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import ms.client.management.entity.Contract;
 
 @Entity
 @Table(name = "client")
@@ -61,9 +55,6 @@ public class Client {
 	@OneToOne()
 	@JoinColumn(name = "billing")
 	private Billing billing;
-	
-	@Transient
-	private List<Contract> contracts;
 
 	public Client() {
 
@@ -179,17 +170,6 @@ public class Client {
 
 	public void setBilling(Billing billing) {
 		this.billing = billing;
-	}
-
-	public List<Contract> getContracts() {
-		contracts = new ArrayList<>();
-		Contract c1 = new Contract();
-		contracts.add(c1);
-		return contracts;
-	}
-
-	public void setContracts(List<Contract> contracts) {
-		this.contracts = contracts;
 	}
 
 }

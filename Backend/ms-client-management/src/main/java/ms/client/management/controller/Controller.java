@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.client.management.entity.db.Client;
-import ms.client.management.repository.IClientRepository;
-import ms.client.management.service.IClientService;
+import ms.client.management.repository.IClientManagementRepository;
+import ms.client.management.service.IClientManagementService;
 
 @RestController
 public class Controller {
@@ -26,10 +26,10 @@ public class Controller {
 	private Environment environment;
 
 	@Autowired
-	private IClientService clientService;
+	private IClientManagementService clientService;
 
 	@Autowired
-	private IClientRepository repository;
+	private IClientManagementRepository repository;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 

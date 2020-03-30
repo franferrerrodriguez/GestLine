@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.authentication.entity.db.User;
-import ms.authentication.repository.IClientRepository;
+import ms.authentication.repository.IAuthenticationRepository;
 import ms.authentication.response.Response;
 import ms.authentication.response.ResponseError;
-import ms.authentication.service.IClientService;
+import ms.authentication.service.IAuthenticationService;
 
 @RestController
 public class Controller {
@@ -31,10 +31,10 @@ public class Controller {
 	private Environment environment;
 
 	@Autowired
-	private IClientService clientService;
+	private IAuthenticationService clientService;
 
 	@Autowired
-	private IClientRepository repository;
+	private IAuthenticationRepository repository;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
