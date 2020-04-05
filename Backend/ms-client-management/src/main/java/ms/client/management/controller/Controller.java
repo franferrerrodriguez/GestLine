@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.client.management.entity.db.Client;
-import ms.client.management.repository.IClientManagementRepository;
 import ms.client.management.service.IClientManagementService;
 
 @RestController
+@RequestMapping("v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
 
 	@Autowired
@@ -28,20 +30,17 @@ public class Controller {
 	@Autowired
 	private IClientManagementService clientService;
 
-	@Autowired
-	private IClientManagementRepository repository;
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<Client> clientById(@PathVariable Long id) throws InterruptedException {
+	public ResponseEntity<Client> clientById(@PathVariable String document) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
 		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
 
-		Client client = clientService.clientById(id);
+		Client client = clientService.clientByDocument(document);
 
 		return new ResponseEntity<Client>(client, HttpStatus.OK);
 	}

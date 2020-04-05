@@ -1,5 +1,11 @@
-<nav class="navbar fixed-top subnavbar">
+<nav class="navbar fixed-top subnavbar" *ngIf="data">
     <span class="navbar-text white-text">
-        Navbar text with an inline element
+        <p class="h6">
+            {{ data.document }} -
+            {{ data.email }} - 
+            {{ data.name }} 
+            {{ data.firstSurname }} 
+            {{ data.secondSurname }}
+        </p>
     </span>
 </nav>

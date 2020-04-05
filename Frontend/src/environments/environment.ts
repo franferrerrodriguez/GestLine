@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  zuul: 'http://localhost:9061'
+};
+
+export const environmentAPI = {
+  production: false,
+  zuul: 'http://localhost:9061'
+};
+
+export const API = {
+  msauthenticationv1: environment.zuul + '/ms-authentication/v1/',
+  msclientmanagementv1: environment.zuul + '/ms-client-management/v1/',
+  mscontractv1: environment.zuul + '/ms-contract/v1/',
+  msinvoicev1: environment.zuul + '/ms-invoice/v1/'
 };
 
 /*

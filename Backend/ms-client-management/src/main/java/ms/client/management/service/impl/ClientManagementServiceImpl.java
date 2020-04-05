@@ -23,42 +23,14 @@ public class ClientManagementServiceImpl implements IClientManagementService {
 	@Autowired
 	IClientManagementRepository clientRepository;
 
-	@Autowired
-	private Environment environment;
-
-	public Client clientById(Long id) throws InterruptedException {
-
-		Thread.sleep(0);
-		String port = environment.getProperty("local.server.port");
-		if (port.equals("8001")) {
-			Thread.sleep(25000);
-		}
-
-		Client client = clientRepository.findById(id);
-
-		/*ResponseEntity<List<Address>> response = this.caller.getApi("http://localhost:8000/nif/" + client.getNif(),
-				HttpMethod.GET);
-
-		client.setBankAccounts(response.getBody());*/
-
-		return client;
-	}
-
+	@Override
 	public List<Client> clientAll() throws InterruptedException {
-
-		List<Client> clients = clientRepository.findAll();
-
-		/*for (Client client : clients) {
-
-			ResponseEntity<List<BankAccounts>> response = this.caller
-					.getApi("http://localhost:8000/nif/" + client.getNif(), HttpMethod.GET);
-
-			System.out.println(response.getStatusCode());
-
-			client.setBankAccounts(response.getBody());
-		}*/
-
-		return clients;
+		return clientRepository.findAll();
+	}
+	
+	@Override
+	public Client clientByDocument(String document) throws InterruptedException {
+		return clientRepository.findByDocument(document);
 	}
 
 }

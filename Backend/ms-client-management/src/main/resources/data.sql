@@ -8,4 +8,4 @@ insert into billing(id, country_code, control_digit, entity, office, dc, account
 values(1, 'Billing 1', '', '', '', '', '', 2);
 
 insert into client(document, document_type, client_type, name, first_surname, second_surname, birth_date, email, online_invoice, due, limit_due, blacklist, address, billing) 
-values('48639170N', 'NIF', 'RESIDENCIAL', '', '', '', '', '', 1, 1, 1, 1, 1, 1);
+values('48639170N', 'NIF', 'RESIDENCIAL', 'Francisco José', 'Ferrer', 'Rodríguez', '1991-09-25', 'fran@fran.com', 1, 0, 2000, 0, 1, 1);

@@ -1,0 +1,8 @@
+.subnavbar{
+    background-color: #6351ce;
+    color:#fff;
+    margin-top:55px;
+    height: 48px;
+    line-height: 5px;
+    z-index: 20 !important;
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
+import { ContractService } from '../../services/contract.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-lines-dashboard',
@@ -8,15 +10,29 @@ import { Component, OnInit } from '@angular/core';
 export class LinesDashboardComponent implements OnInit {
 
   public loading:boolean;
+  public data:any;
+  public document:string;
 
-  constructor() { 
+  constructor(private authService: AuthService, private contractService: ContractService) { 
     this.loading = true;
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 500);
+    console.log(this.authService.getCurrentUser());
+    //this.getClientManagementData(this.document);
   }
 
+  getClientManagementData(document:string) {
+    this.loading = true;
+    return this.contractService
+    .getData(document)
+    .subscribe(
+      data => {
+        console.log(data);
+        this.data = data;
+        this.loading = false;
+      }
+    );
+  }
+  
 }

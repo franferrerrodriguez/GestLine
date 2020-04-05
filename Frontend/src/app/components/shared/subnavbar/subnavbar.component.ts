@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
+import { AuthService } from '../../../services/auth/auth.service';
+import { ClientmanagementService } from '../../../services/clientmanagement.service';
 
 @Component({
   selector: 'app-subnavbar',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubnavbarComponent implements OnInit {
 
-  constructor() { }
+  public data:any;
+
+  constructor(public authService: AuthService, private clientmanagementService: ClientmanagementService) { 
+
+  }
 
   ngOnInit(): void {
+    this.getClientManagementData();
+  }
+
+  getClientManagementData() {
+    return this.clientmanagementService
+    .getData()
+    .subscribe(
+      data => {
+        this.data = data;
+      }
+    );
   }
 
 }

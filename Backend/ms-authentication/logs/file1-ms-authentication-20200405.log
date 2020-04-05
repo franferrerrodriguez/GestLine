@@ -1,0 +1,29 @@
+2020-04-05 00:47:16 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:47:19 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 8.173 seconds (JVM running for 28868.102)
+2020-04-05 00:47:59 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:48:03 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.97 seconds (JVM running for 28911.653)
+2020-04-05 00:49:13 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:49:17 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 8.029 seconds (JVM running for 28985.262)
+2020-04-05 00:49:25 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:49:29 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.963 seconds (JVM running for 28997.59)
+2020-04-05 00:50:11 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:50:14 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.956 seconds (JVM running for 29043.019)
+2020-04-05 00:50:25 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:50:29 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.965 seconds (JVM running for 29057.448)
+2020-04-05 00:50:38 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:50:41 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.957 seconds (JVM running for 29069.915)
+2020-04-05 00:51:10 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:51:14 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.943 seconds (JVM running for 29102.331)
+2020-04-05 00:51:31 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:51:35 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.898 seconds (JVM running for 29123.733)
+2020-04-05 00:51:57 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:52:00 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 7.911 seconds (JVM running for 29149.104)
+2020-04-05 00:52:12 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 00:52:19 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 11.589 seconds (JVM running for 12.291)
+2020-04-05 00:52:38 [hystrix-Controller-1] INFO  m.a.controller.Controller - Called endpoint: 'clientById' | Port: '8000'
+2020-04-05 00:52:41 [hystrix-Controller-2] INFO  m.a.controller.Controller - Called endpoint: 'clientById' | Port: '8000'
+2020-04-05 00:52:42 [hystrix-Controller-3] INFO  m.a.controller.Controller - Called endpoint: 'clientById' | Port: '8000'
+2020-04-05 01:42:26 [restartedMain] INFO  m.a.MsAuthenticationApplication - No active profile set, falling back to default profiles: default
+2020-04-05 01:42:30 [restartedMain] INFO  m.a.MsAuthenticationApplication - Started MsAuthenticationApplication in 8.263 seconds (JVM running for 3023.362)
+2020-04-05 01:43:11 [hystrix-Controller-1] INFO  m.a.controller.Controller - Called endpoint: 'clientById' | Port: '8000'
+2020-04-05 04:47:52 [hystrix-Controller-2] INFO  m.a.controller.Controller - Called endpoint: 'clientById' | Port: '8000'

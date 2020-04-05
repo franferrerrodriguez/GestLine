@@ -2,7 +2,7 @@
 spring:
      # Spring Application Config
      application:
-          name: ms-consumption
+          name: ms-contract
      # Spring Cloud Config
      cloud:
           config:

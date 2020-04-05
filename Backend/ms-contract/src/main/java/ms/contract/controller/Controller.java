@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,8 @@ import ms.contract.repository.IContractRepository;
 import ms.contract.service.IContractService;
 
 @RestController
+@RequestMapping("v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
 
 	@Autowired
@@ -32,8 +35,20 @@ public class Controller {
 	private IContractRepository repository;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
+	
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Contract> clientByDocument(@PathVariable String document) throws InterruptedException {
 
+		String port = environment.getProperty("local.server.port");
 
+		LOGGER.info(String.format("Called endpoint: 'clientByDocument' | Port: '%s'", port));
+
+		Contract consumption = clientService.consumptionByDocument(document);
+
+		return new ResponseEntity<Contract>(consumption, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	@HystrixCommand()
 	public ResponseEntity<List<Contract>> clientAll() throws InterruptedException {
@@ -45,19 +60,6 @@ public class Controller {
 		List<Contract> clients = clientService.consumptionAll();
 
 		return new ResponseEntity<List<Contract>>(clients, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
-	@HystrixCommand()
-	public ResponseEntity<Contract> clientById(@PathVariable String document) throws InterruptedException {
-
-		String port = environment.getProperty("local.server.port");
-
-		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
-
-		Contract consumption = clientService.consumptionByDocument(document);
-
-		return new ResponseEntity<Contract>(consumption, HttpStatus.OK);
 	}
 
 }

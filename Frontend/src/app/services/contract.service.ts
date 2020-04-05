@@ -7,7 +7,7 @@ import { API } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientmanagementService {
+export class ContractService {
 
   constructor(private http: HttpClient) { }
 
@@ -16,8 +16,8 @@ export class ClientmanagementService {
     "Access-Control-Allow-Origin": "*"
   });
 
-  getData(): Observable<any> {
-    const url = API.msclientmanagementv1 + "document/48639170N";
+  getData(document: string): Observable<any> {
+    const url = API.mscontractv1 + "document/" + document;
     return this.http
       .get(
         url,

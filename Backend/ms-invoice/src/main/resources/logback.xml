@@ -15,7 +15,7 @@
 	
 	<appender name="FILE-AUDIT"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${DEV_HOME}/file1-ms-client-management-${Date}.log</file>
+		<file>${DEV_HOME}/file1-ms-invoice-${Date}.log</file>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>
 				%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
@@ -35,7 +35,7 @@
 	</appender>
 	
 	<!-- Send logs to both console and file audit -->
-	<logger name="com.springboot.microservice.ms.client.management" level="info" additivity="false">
+	<logger name="ms.invoice" level="info" additivity="false">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE-AUDIT" />
 	</logger>

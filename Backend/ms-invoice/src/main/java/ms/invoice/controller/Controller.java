@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,8 @@ import ms.invoice.repository.IInvoiceRepository;
 import ms.invoice.service.IInvoiceService;
 
 @RestController
+@RequestMapping("v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
 
 	@Autowired

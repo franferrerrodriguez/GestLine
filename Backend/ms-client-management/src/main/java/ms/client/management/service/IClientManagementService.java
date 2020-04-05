@@ -6,8 +6,8 @@ import ms.client.management.entity.db.Client;
 
 public interface IClientManagementService {
 
-	Client clientById(Long id) throws InterruptedException;
-
 	List<Client> clientAll() throws InterruptedException;
+	
+	Client clientByDocument(String document) throws InterruptedException;
 
 }

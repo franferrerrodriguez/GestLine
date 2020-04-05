@@ -25,6 +25,8 @@ import ms.authentication.response.ResponseError;
 import ms.authentication.service.IAuthenticationService;
 
 @RestController
+@RequestMapping("v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
 
 	@Autowired
@@ -33,21 +35,17 @@ public class Controller {
 	@Autowired
 	private IAuthenticationService clientService;
 
-	@Autowired
-	private IAuthenticationRepository repository;
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/check", method = RequestMethod.POST)
+	@RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
 	@HystrixCommand()
-	public ResponseEntity<Response<User>> check(@RequestBody User user) throws InterruptedException {
+	public ResponseEntity<Response<User>> checkLogin(@RequestBody User user) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
 		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
 
-		User checkUser = clientService.check(user.getEmail(), user.getPassword());
+		User checkUser = clientService.checkLogin(user.getEmail(), user.getPassword());
 		
 		Response<User> response;
 		if(checkUser == null) {
@@ -59,15 +57,15 @@ public class Controller {
 		return new ResponseEntity<Response<User>>(response, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<User> clientById(@PathVariable Long id) throws InterruptedException {
+	public ResponseEntity<User> clientByDocument(@PathVariable String document) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
 		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
 
-		User client = clientService.clientById(id);
+		User client = clientService.userByDocument(document);
 
 		return new ResponseEntity<User>(client, HttpStatus.OK);
 	}
@@ -80,7 +78,7 @@ public class Controller {
 
 		LOGGER.info(String.format("Called endpoint: 'clientAll' | Port: '%s'", port));
 
-		List<User> clients = clientService.clientAll();
+		List<User> clients = clientService.userAll();
 
 		return new ResponseEntity<List<User>>(clients, HttpStatus.OK);
 	}

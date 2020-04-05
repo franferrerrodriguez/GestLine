@@ -6,10 +6,10 @@ import org.springframework.data.repository.Repository;
 
 import ms.authentication.entity.db.User;
 
-public interface IAuthenticationRepository extends Repository<User, Long> {
-
-	public User findById(Long id);
+public interface IAuthenticationRepository extends Repository<User, String> {
 
 	public List<User> findAll();
-
+	
+	public User findByDocument(String document);
+	
 }

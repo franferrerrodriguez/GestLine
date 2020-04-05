@@ -4,7 +4,7 @@ import { Observable } from "rxjs/internal/Observable";
 import { map } from "rxjs/operators";
 import { isNullOrUndefined } from "util";
 import { User } from '../../models/user.class';
-import * as CryptoJS from 'crypto-js';
+import { API } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,37 +15,22 @@ export class AuthService {
   ip:string = "localhost";
   port:string = "3000";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*"
   });
 
-  registerUser(name: string, email: string, password: string) {
-    const url = "http://localhost:3000/api/Users";
-    return this.http
-      .post<User>(
-        url,
-        {
-          name: name,
-          email: email,
-          password: password
-        },
-        { headers: this.headers }
-      )
-      .pipe(map(data => data));
-  }
-
   loginUser(user: User): Observable<any> {
-    const url = "http://localhost:9061/ms-authentication/check";
+    const url = API.msauthenticationv1 + "checkLogin";
     return this.http
       .post<User>(
         url,
         user,
         { headers: this.headers }
       )
-      .pipe(map(data => data));
+    .pipe(map(data => data));
   }
 
   setUser(user: User): void {
