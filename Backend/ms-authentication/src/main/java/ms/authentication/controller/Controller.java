@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.authentication.entity.db.User;
-import ms.authentication.repository.IAuthenticationRepository;
 import ms.authentication.response.Response;
 import ms.authentication.response.ResponseError;
 import ms.authentication.service.IAuthenticationService;
@@ -33,54 +31,87 @@ public class Controller {
 	private Environment environment;
 
 	@Autowired
-	private IAuthenticationService clientService;
+	private IAuthenticationService authenticationService;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<List<User>>> userAll() throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'userAll' | Port: '%s'", port));
+
+		Response<List<User>> response;
+		HttpStatus httpStatus;
+		try {
+			response = new Response<>(authenticationService.userAll());
+			httpStatus = HttpStatus.OK;
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<User>> userByDocument(@PathVariable String document) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'userByDocument' | Port: '%s'", port));
+
+		Response<User> response;
+		HttpStatus httpStatus;
+		try {
+			User user = authenticationService.userByDocument(document);
+			if(user != null) {
+				response = new Response<>(user);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
 	@RequestMapping(value = "/checkLogin", method = RequestMethod.POST)
 	@HystrixCommand()
 	public ResponseEntity<Response<User>> checkLogin(@RequestBody User user) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
-		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
+		LOGGER.info(String.format("Called endpoint: 'checkLogin' | Port: '%s'", port));
 
-		User checkUser = clientService.checkLogin(user.getEmail(), user.getPassword());
+		User checkUser = authenticationService.checkLogin(user.getEmail(), user.getPassword());
 		
 		Response<User> response;
-		if(checkUser == null) {
-			response = new Response<User>(new ResponseError("Error"));
-		}else {
-			response = new Response<User>(checkUser);
+		HttpStatus httpStatus;
+		try {
+			if(checkUser != null) {
+				response = new Response<>(checkUser);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 
-		return new ResponseEntity<Response<User>>(response, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
-	@HystrixCommand()
-	public ResponseEntity<User> clientByDocument(@PathVariable String document) throws InterruptedException {
-
-		String port = environment.getProperty("local.server.port");
-
-		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
-
-		User client = clientService.userByDocument(document);
-
-		return new ResponseEntity<User>(client, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	@HystrixCommand()
-	public ResponseEntity<List<User>> clientAll() throws InterruptedException {
-
-		String port = environment.getProperty("local.server.port");
-
-		LOGGER.info(String.format("Called endpoint: 'clientAll' | Port: '%s'", port));
-
-		List<User> clients = clientService.userAll();
-
-		return new ResponseEntity<List<User>>(clients, HttpStatus.OK);
+		return new ResponseEntity<>(response, httpStatus);
+		
 	}
 
 }

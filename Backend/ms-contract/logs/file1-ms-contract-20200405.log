@@ -28,3 +28,33 @@
 2020-04-05 02:56:57 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8002'
 2020-04-05 02:57:35 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8002'
 2020-04-05 03:54:43 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8002'
+2020-04-05 14:45:34 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 14:45:41 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 11.862 seconds (JVM running for 12.57)
+2020-04-05 15:25:53 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:25:57 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.123 seconds (JVM running for 2428.408)
+2020-04-05 15:26:28 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:26:32 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.995 seconds (JVM running for 2462.971)
+2020-04-05 15:28:20 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:28:24 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.016 seconds (JVM running for 2574.872)
+2020-04-05 15:29:05 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:29:09 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.958 seconds (JVM running for 2620.447)
+2020-04-05 15:31:14 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:31:18 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.022 seconds (JVM running for 2749.464)
+2020-04-05 15:31:38 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:31:42 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.009 seconds (JVM running for 2772.998)
+2020-04-05 15:31:52 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:31:55 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.979 seconds (JVM running for 2786.79)
+2020-04-05 15:32:17 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:32:21 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.955 seconds (JVM running for 2812.413)
+2020-04-05 15:32:51 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:32:55 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.994 seconds (JVM running for 2845.967)
+2020-04-05 15:40:09 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:40:13 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.909 seconds (JVM running for 3284.404)
+2020-04-05 15:40:22 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:40:25 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.828 seconds (JVM running for 3296.692)
+2020-04-05 15:40:37 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:40:41 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.91 seconds (JVM running for 3312.112)
+2020-04-05 15:41:03 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:41:06 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.903 seconds (JVM running for 3337.491)
+2020-04-05 15:41:40 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:41:44 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 7.979 seconds (JVM running for 3375.038)

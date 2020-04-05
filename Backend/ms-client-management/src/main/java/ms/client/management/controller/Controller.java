@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.client.management.entity.db.Client;
+import ms.client.management.response.Response;
+import ms.client.management.response.ResponseError;
 import ms.client.management.service.IClientManagementService;
 
 @RestController
@@ -28,34 +30,59 @@ public class Controller {
 	private Environment environment;
 
 	@Autowired
-	private IClientManagementService clientService;
+	private IClientManagementService clientManagementService;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 
-	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
-	@HystrixCommand()
-	public ResponseEntity<Client> clientById(@PathVariable String document) throws InterruptedException {
-
-		String port = environment.getProperty("local.server.port");
-
-		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
-
-		Client client = clientService.clientByDocument(document);
-
-		return new ResponseEntity<Client>(client, HttpStatus.OK);
-	}
-
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<List<Client>> clientAll() throws InterruptedException {
+	public ResponseEntity<Response<List<Client>>> clientAll() throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
 		LOGGER.info(String.format("Called endpoint: 'clientAll' | Port: '%s'", port));
 
-		List<Client> clients = clientService.clientAll();
+		Response<List<Client>> response;
+		HttpStatus httpStatus;
+		try {
+			response = new Response<>(clientManagementService.clientAll());
+			httpStatus = HttpStatus.OK;
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
 
-		return new ResponseEntity<List<Client>>(clients, HttpStatus.OK);
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<Client>> clientById(@PathVariable String document) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
+
+		Response<Client> response;
+		HttpStatus httpStatus;
+		try {
+			Client client = clientManagementService.clientByDocument(document);
+			
+			if(client != null) {
+				response = new Response<>(client);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		
+		return new ResponseEntity<>(response, httpStatus);
+		
 	}
 
 }

@@ -112,3 +112,26 @@
 2020-04-05 04:47:14 [hystrix-Controller-10] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
 2020-04-05 04:47:23 [hystrix-Controller-10] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
 2020-04-05 04:47:50 [hystrix-Controller-10] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
+2020-04-05 14:45:32 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 14:45:39 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 12.185 seconds (JVM running for 13.493)
+2020-04-05 14:47:46 [hystrix-Controller-1] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
+2020-04-05 14:47:59 [hystrix-Controller-2] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
+2020-04-05 14:48:20 [hystrix-Controller-3] INFO  m.c.management.controller.Controller - Called endpoint: 'clientById' | Port: '8001'
+2020-04-05 15:19:16 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:19:19 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 8.12 seconds (JVM running for 2034.155)
+2020-04-05 15:20:29 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:20:33 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 8.029 seconds (JVM running for 2107.897)
+2020-04-05 15:20:57 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:21:00 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 8.012 seconds (JVM running for 2135.39)
+2020-04-05 15:23:38 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:23:42 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 7.986 seconds (JVM running for 2296.474)
+2020-04-05 15:24:38 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:24:41 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 8.013 seconds (JVM running for 2356.103)
+2020-04-05 15:24:49 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:24:53 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 7.927 seconds (JVM running for 2367.5)
+2020-04-05 15:28:40 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:28:44 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 8.009 seconds (JVM running for 2599.022)
+2020-04-05 15:40:44 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:40:48 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 7.856 seconds (JVM running for 3322.837)
+2020-04-05 15:41:47 [restartedMain] INFO  m.c.m.MsClientManagementApplication - No active profile set, falling back to default profiles: default
+2020-04-05 15:41:50 [restartedMain] INFO  m.c.m.MsClientManagementApplication - Started MsClientManagementApplication in 7.862 seconds (JVM running for 3385.34)

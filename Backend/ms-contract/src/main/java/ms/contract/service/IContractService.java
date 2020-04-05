@@ -6,8 +6,8 @@ import ms.contract.entity.db.Contract;
 
 public interface IContractService {
 
-	Contract consumptionByDocument(String document) throws InterruptedException;
+	Contract contractByDocument(String document) throws InterruptedException;
 
-	List<Contract> consumptionAll() throws InterruptedException;
+	List<Contract> contractAll() throws InterruptedException;
 
 }

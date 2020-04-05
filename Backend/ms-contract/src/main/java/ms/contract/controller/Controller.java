@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import ms.contract.entity.db.Contract;
-import ms.contract.repository.IContractRepository;
+import ms.contract.response.Response;
+import ms.contract.response.ResponseError;
 import ms.contract.service.IContractService;
 
 @RestController
@@ -29,37 +30,59 @@ public class Controller {
 	private Environment environment;
 
 	@Autowired
-	private IContractService clientService;
-
-	@Autowired
-	private IContractRepository repository;
+	private IContractService contractService;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
 	
-	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
-	@HystrixCommand()
-	public ResponseEntity<Contract> clientByDocument(@PathVariable String document) throws InterruptedException {
-
-		String port = environment.getProperty("local.server.port");
-
-		LOGGER.info(String.format("Called endpoint: 'clientByDocument' | Port: '%s'", port));
-
-		Contract consumption = clientService.consumptionByDocument(document);
-
-		return new ResponseEntity<Contract>(consumption, HttpStatus.OK);
-	}
-	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<List<Contract>> clientAll() throws InterruptedException {
+	public ResponseEntity<Response<List<Contract>>> contractAll() throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
-		LOGGER.info(String.format("Called endpoint: 'clientAll' | Port: '%s'", port));
+		LOGGER.info(String.format("Called endpoint: 'contractAll' | Port: '%s'", port));
+		
+		Response<List<Contract>> response;
+		HttpStatus httpStatus;
+		try {
+			response = new Response<>(contractService.contractAll());
+			httpStatus = HttpStatus.OK;
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
 
-		List<Contract> clients = clientService.consumptionAll();
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
+	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<Contract>> contractByDocument(@PathVariable String document) throws InterruptedException {
 
-		return new ResponseEntity<List<Contract>>(clients, HttpStatus.OK);
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'contractByDocument' | Port: '%s'", port));
+		
+		Response<Contract> response;
+		HttpStatus httpStatus;
+		try {
+			Contract contract = contractService.contractByDocument(document);
+			
+			if(contract != null) {
+				response = new Response<>(contract);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(response, httpStatus);
+		
 	}
 
 }
