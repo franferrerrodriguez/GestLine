@@ -21,3 +21,13 @@ input[type=number] {
 ::placeholder {
     color: #C7DDE9;
 }
+
+.cursor-hand {
+    cursor:pointer;
+    cursor: hand;
+}
+
+.cursor-hand:hover {
+    background-color:#6351ce;
+    color: #fff;
+}

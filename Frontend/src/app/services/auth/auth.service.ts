@@ -60,6 +60,7 @@ export class AuthService {
     let accessToken = localStorage.getItem("accessToken");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
+    window.location.reload();
   }
 
 }

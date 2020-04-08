@@ -1,6 +1,8 @@
 package ms.invoice.service.impl;
 
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +17,22 @@ public class InvoiceServiceImpl implements IInvoiceService {
 	@Autowired
 	IInvoiceRepository invoiceRepository;
 
+	@Override
 	public List<InvoiceDocument> invoiceAll() throws InterruptedException {
 		return invoiceRepository.findAll();
+	}
+	
+	@Override
+	public InvoiceDocument findById(Long id) {
+		return invoiceRepository.findById(id);
+	}
+	
+	@Override
+	public List<InvoiceDocument> findBetweenDates(String document, Date invoiceDate, Date endDate) throws InterruptedException {
+		return invoiceRepository.findAll()
+				.stream()
+				.filter(e -> e.getDocument().equals(document) && e.getInvoiceDate().after(invoiceDate) && e.getInvoiceDate().before(endDate))
+				.collect(Collectors.toList());
 	}
 
 }

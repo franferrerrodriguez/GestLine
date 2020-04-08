@@ -16,17 +16,24 @@ export class SubnavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("OK!!!!");
     this.getClientManagementData();
   }
 
   getClientManagementData() {
-    return this.clientmanagementService
-    .getData()
-    .subscribe(
-      data => {
-        this.data = data;
-      }
-    );
+    if(this.authService.getCurrentUser()){
+      return this.clientmanagementService
+      .getData(this.authService.getCurrentUser().document)
+      .subscribe(
+        data => {
+          this.data = data.result;
+          console.log("ok" + data);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
 }

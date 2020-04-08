@@ -1,10 +1,10 @@
 <app-spinner *ngIf="loading" class="spinner"></app-spinner>
 
-<app-twosection *ngIf="!loading">
+<app-twosection>
     <div content1>
-        {{ data.name }}
+        <app-resume-lines></app-resume-lines>
     </div>
     <div content2>
-        Content form parent 2
+        <app-chart-invoices></app-chart-invoices>
     </div>
 </app-twosection>

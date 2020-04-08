@@ -26,11 +26,8 @@ public class ContractServices {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "activation_date")
-	private Date activationDate;
-	
-	@Column(name = "desactivation_date")
-	private Date desactivationDate;
+	@Column(name = "active")
+	private Boolean active;
 	
 	@ManyToOne()
 	@JsonIgnore
@@ -65,20 +62,12 @@ public class ContractServices {
 		this.description = description;
 	}
 	
-	public Date getActivationDate() {
-		return activationDate;
+	public Boolean isActive() {
+		return active;
 	}
 	
-	public void setActivationDate(Date activationDate) {
-		this.activationDate = activationDate;
-	}
-	
-	public Date getDesactivationDate() {
-		return desactivationDate;
-	}
-	
-	public void setDesactivationDate(Date desactivationDate) {
-		this.desactivationDate = desactivationDate;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public ContractLine getContractLine() {

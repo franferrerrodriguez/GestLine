@@ -7,15 +7,15 @@ import { AuthService } from '../../../services/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LogoutGuard implements CanActivate {
 
   constructor(private router: Router, private authService: AuthService){ }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.authService.getCurrentUser() == null){
-      this.router.navigate(['login']);
+    if(this.authService.getCurrentUser() != null){
+      this.router.navigate(['lines-dashboard']);
       return false;
     }
     return true;

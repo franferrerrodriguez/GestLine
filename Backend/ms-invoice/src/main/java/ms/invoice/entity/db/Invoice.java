@@ -1,10 +1,10 @@
 package ms.invoice.entity.db;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,15 +14,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Invoice {
 	
 	@Id
+	private Long id;
+	
+	@ManyToOne()
+	@JoinColumn(name = "invoice_document")
+	@JsonIgnore
+	private InvoiceDocument invoiceDocument;
+	
 	@Column(name = "phone")
 	private String phone;
-	
-	@JsonIgnore
-	@Column(name = "document", updatable = false, nullable = false)
-	private String document;
-	
-	@Column(name = "date")
-	private Date date;
 	
 	@Column(name = "amount")
 	private Double amount;
@@ -36,12 +36,20 @@ public class Invoice {
 	@Column(name = "total_amount")
 	private Double totalAmount;
 
-	public String getDocument() {
-		return document;
+	public Invoice() {
+
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setDocument(String document) {
-		this.document = document;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setInvoiceDocument(InvoiceDocument invoiceDocument) {
+		this.invoiceDocument = invoiceDocument;
 	}
 
 	public String getPhone() {
@@ -50,14 +58,6 @@ public class Invoice {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public Double getAmount() {

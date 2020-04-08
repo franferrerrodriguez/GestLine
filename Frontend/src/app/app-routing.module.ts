@@ -7,16 +7,17 @@ import { InvoicesComponent }      from './components/invoices/invoices.component
 import { LineservicesComponent }      from './components/lineservices/lineservices.component';
 import { SettingsComponent }      from './components/settings/settings.component';
 import { NotificationsComponent }      from './components/notifications/notifications.component';
-import { AuthGuard } from './components/auth/guards/auth.guard';
+import { LoginGuard } from './components/auth/guards/login.guard';
+import { LogoutGuard } from './components/auth/guards/logout.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'lines-dashboard', component: LinesDashboardComponent, canActivate:[AuthGuard] },
-  { path: 'consumption', component: ConsumptionComponent, canActivate:[AuthGuard] },
-  { path: 'invoices', component: InvoicesComponent, canActivate:[AuthGuard] },
-  { path: 'lineservices', component: LineservicesComponent, canActivate:[AuthGuard] },
-  { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard] },
-  { path: 'notifications', component: NotificationsComponent, canActivate:[AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate:[LogoutGuard] },
+  { path: 'lines-dashboard', component: LinesDashboardComponent, canActivate:[LoginGuard] },
+  { path: 'consumption', component: ConsumptionComponent, canActivate:[LoginGuard] },
+  { path: 'invoices', component: InvoicesComponent, canActivate:[LoginGuard] },
+  { path: 'lineservices', component: LineservicesComponent, canActivate:[LoginGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate:[LoginGuard] },
+  { path: 'notifications', component: NotificationsComponent, canActivate:[LoginGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'lines-dashboard' }
 ];
 

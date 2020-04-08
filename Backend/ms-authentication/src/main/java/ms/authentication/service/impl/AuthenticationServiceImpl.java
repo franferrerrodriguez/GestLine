@@ -15,14 +15,17 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 	@Autowired
 	IAuthenticationRepository authenticationRepository;
 	
+	@Override
 	public List<User> userAll() throws InterruptedException {
 		return authenticationRepository.findAll();
 	}
 	
+	@Override
 	public User userByDocument(String document) throws InterruptedException {
 		return authenticationRepository.findByDocument(document);
 	}
 	
+	@Override
 	public User checkLogin(String email, String password) throws InterruptedException {
 		for(User user : authenticationRepository.findAll())
 			if(user.getEmail().equals(email) && user.getPassword().equals(password))

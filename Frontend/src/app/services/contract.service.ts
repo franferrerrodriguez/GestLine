@@ -16,7 +16,7 @@ export class ContractService {
     "Access-Control-Allow-Origin": "*"
   });
 
-  getData(document: string): Observable<any> {
+  getContractByDocumentSrv(document: string): Observable<any> {
     const url = API.mscontractv1 + "document/" + document;
     return this.http
       .get(

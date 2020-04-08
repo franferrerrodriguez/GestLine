@@ -13,6 +13,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   public loading:boolean;
+  public error:string;
 
   public user: User = {
     email: '',
@@ -37,15 +38,14 @@ export class LoginComponent implements OnInit {
       .loginUser(this.user)
       .subscribe(
         data => {
-          if(data.error != null){
+          if(data.error != null) {
             this.user.password = '';
             this.loading = false;
-          }else{
-            console.log(data);
-            this.authService.setUser(this.user);
+          } else {
+            this.authService.setUser(data.result);
             this.authService.setToken(data.result.id);
             this.router.navigate(['lines-dashboard']);
-            this.loading = false;
+            location.reload();
           }
         },
         error => {

@@ -17,16 +17,16 @@ public class LineConsumption {
 	private String id;
 	
 	@Column(name = "total_minuts")
-	private long totalMinuts;
+	private Double totalMinuts;
 	
 	@Column(name = "total_minuts_international")
-	private long totalMinutsInternational;
+	private Double totalMinutsInternational;
 	
 	@Column(name = "usage_minuts")
-	private long usageMinuts;
+	private Double usageMinuts;
 	
 	@Column(name = "usage_minuts_international")
-	private long usageMinutsInternational;
+	private Double usageMinutsInternational;
 	
 	@Column(name = "total_sms")
 	private Integer totalSms;
@@ -46,35 +46,35 @@ public class LineConsumption {
 		this.id = id;
 	}
 	
-	public long getTotalMinuts() {
+	public Double getTotalMinuts() {
 		return totalMinuts;
 	}
 	
-	public void setTotalMinuts(long totalMinuts) {
+	public void setTotalMinuts(Double totalMinuts) {
 		this.totalMinuts = totalMinuts;
 	}
 	
-	public long getTotalMinutsInternational() {
+	public Double getTotalMinutsInternational() {
 		return totalMinutsInternational;
 	}
 	
-	public void setTotalMinutsInternational(long totalMinutsInternational) {
+	public void setTotalMinutsInternational(Double totalMinutsInternational) {
 		this.totalMinutsInternational = totalMinutsInternational;
 	}
 	
-	public long getUsageMinuts() {
+	public Double getUsageMinuts() {
 		return usageMinuts;
 	}
 	
-	public void setUsageMinuts(long usageMinuts) {
+	public void setUsageMinuts(Double usageMinuts) {
 		this.usageMinuts = usageMinuts;
 	}
 	
-	public long getUsageMinutsInternational() {
+	public Double getUsageMinutsInternational() {
 		return usageMinutsInternational;
 	}
 	
-	public void setUsageMinutsInternational(long usageMinutsInternational) {
+	public void setUsageMinutsInternational(Double usageMinutsInternational) {
 		this.usageMinutsInternational = usageMinutsInternational;
 	}
 	

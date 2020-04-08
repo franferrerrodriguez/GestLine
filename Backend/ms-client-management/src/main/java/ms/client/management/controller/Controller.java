@@ -58,11 +58,11 @@ public class Controller {
 	
 	@RequestMapping(value = "/document/{document}", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<Response<Client>> clientById(@PathVariable String document) throws InterruptedException {
+	public ResponseEntity<Response<Client>> clientByDocument(@PathVariable String document) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
-		LOGGER.info(String.format("Called endpoint: 'clientById' | Port: '%s'", port));
+		LOGGER.info(String.format("Called endpoint: 'clientByDocument' | Port: '%s'", port));
 
 		Response<Client> response;
 		HttpStatus httpStatus;

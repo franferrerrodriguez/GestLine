@@ -1,0 +1,48 @@
+<style>
+    .prueba{
+        background-color: #8577d4;
+        color: #fff;
+        height: 60px;
+        line-height: 60px;
+        font-weight: bold;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+    .prueba span{
+        right: 0px;
+    }
+</style>
+
+<div *ngIf="contractData">
+    <div class="prueba" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+        Líneas ({{ contractData.contractName | uppercase }})
+        <span>
+            <i class="fas fa-angle-down rotate-icon"></i>
+        </span>
+        
+    </div>
+    <div class="collapse show" id="collapseExample">
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item cursor-hand" 
+                    *ngFor="let contract of contractData.contractLines;">
+                    <span class="font-weight-bold">
+                        {{ contract.phone }} ({{ contract.contractType | contractType }})
+                    </span>
+                    <br>
+                    <span *ngIf="contract.rate">
+                            {{ contract.rate }}
+                    </span>
+                    <span *ngIf="contract.tecnology">
+                            ({{ contract.tecnology }})
+                    </span>
+                    <br>
+                    <span *ngIf="contract.dataConsumption">
+                            {{ byteToGb(contract.dataConsumption.usageBytes) }} GB / 
+                            {{ byteToGb(contract.dataConsumption.totalBytes) }} GB
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

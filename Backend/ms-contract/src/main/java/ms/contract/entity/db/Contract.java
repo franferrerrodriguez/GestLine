@@ -18,6 +18,9 @@ public class Contract {
 	@Column(name = "document", updatable = false, nullable = false)
 	private String document;
 	
+	@Column(name = "contract_name")
+	private String contractName;
+	
 	@OneToMany(mappedBy="contract", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<ContractLine> contractLines;
 	
@@ -31,6 +34,14 @@ public class Contract {
 
 	public void setDocument(String document) {
 		this.document = document;
+	}
+
+	public String getContractName() {
+		return contractName;
+	}
+
+	public void setContractName(String contractName) {
+		this.contractName = contractName;
 	}
 
 	public List<ContractLine> getContractLines() {

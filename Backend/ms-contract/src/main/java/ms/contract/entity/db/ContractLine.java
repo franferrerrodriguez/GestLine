@@ -42,7 +42,7 @@ public class ContractLine {
 	private String tecnology;
 	
 	@Column(name = "partner_points")
-	private String partnerPoints;
+	private Integer partnerPoints;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -120,11 +120,11 @@ public class ContractLine {
 		this.tecnology = tecnology;
 	}
 
-	public String getPartnerPoints() {
+	public Integer getPartnerPoints() {
 		return partnerPoints;
 	}
 
-	public void setPartnerPoints(String partnerPoints) {
+	public void setPartnerPoints(Integer partnerPoints) {
 		this.partnerPoints = partnerPoints;
 	}
 

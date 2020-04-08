@@ -17,19 +17,19 @@ public class DataConsumption {
 	private String id;
 	
 	@Column(name = "total_bytes")
-	private long totalBytes;
+	private Double totalBytes;
 	
 	@Column(name = "total_bytes_international")
-	private long totalBytesInternational;
+	private Double totalBytesInternational;
 	
 	@Column(name = "total_bytes_bonus")
-	private long totalBytesBonus;
+	private Double totalBytesBonus;
 	
 	@Column(name = "usage_bytes")
-	private long usageBytes;
+	private Double usageBytes;
 	
 	@Column(name = "usage_bytes_international")
-	private long usageBytesInternational;
+	private Double usageBytesInternational;
 	
 	public DataConsumption() {
 		
@@ -43,43 +43,43 @@ public class DataConsumption {
 		this.id = id;
 	}
 	
-	public long getTotalBytes() {
+	public Double getTotalBytes() {
 		return totalBytes;
 	}
 	
-	public void setTotalBytes(long totalBytes) {
+	public void setTotalBytes(Double totalBytes) {
 		this.totalBytes = totalBytes;
 	}
 	
-	public long getTotalBytesInternational() {
+	public Double getTotalBytesInternational() {
 		return totalBytesInternational;
 	}
 	
-	public void setTotalBytesInternational(long totalBytesInternational) {
+	public void setTotalBytesInternational(Double totalBytesInternational) {
 		this.totalBytesInternational = totalBytesInternational;
 	}
 	
-	public long getTotalBytesBonus() {
+	public Double getTotalBytesBonus() {
 		return totalBytesBonus;
 	}
 	
-	public void setTotalBytesBonus(long totalBytesBonus) {
+	public void setTotalBytesBonus(Double totalBytesBonus) {
 		this.totalBytesBonus = totalBytesBonus;
 	}
 	
-	public long getUsageBytes() {
+	public Double getUsageBytes() {
 		return usageBytes;
 	}
 	
-	public void setUsageBytes(long usageBytes) {
+	public void setUsageBytes(Double usageBytes) {
 		this.usageBytes = usageBytes;
 	}
 	
-	public long getUsageBytesInternational() {
+	public Double getUsageBytesInternational() {
 		return usageBytesInternational;
 	}
 	
-	public void setUsageBytesInternational(long usageBytesInternational) {
+	public void setUsageBytesInternational(Double usageBytesInternational) {
 		this.usageBytesInternational = usageBytesInternational;
 	}
 	

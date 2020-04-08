@@ -16,8 +16,8 @@ export class ClientmanagementService {
     "Access-Control-Allow-Origin": "*"
   });
 
-  getData(): Observable<any> {
-    const url = API.msclientmanagementv1 + "document/48639170N";
+  getData(document:string): Observable<any> {
+    const url = API.msclientmanagementv1 + "document/" + document;
     return this.http
       .get(
         url,
