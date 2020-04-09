@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+.maincontainer{
+    margin-top:120px;
+    margin-bottom:20px;
+    width: 100%;
+    z-index: 0 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    color:#fff;
+}
+
+::placeholder {
+    color: #C7DDE9;
+}
+
+.cursor-hand {
+    cursor:pointer;
+    cursor: hand;
+}
+
+.cursor-hand:hover {
+    background-color:#6351ce;
+    color: #fff;
+}
+
+.header-component{
+    background-color: #8577d4;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    padding-left: 20px;
+    cursor: pointer;
+}

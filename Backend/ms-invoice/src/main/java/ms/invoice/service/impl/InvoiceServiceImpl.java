@@ -1,5 +1,6 @@
 package ms.invoice.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,6 +34,18 @@ public class InvoiceServiceImpl implements IInvoiceService {
 				.stream()
 				.filter(e -> e.getDocument().equals(document) && e.getInvoiceDate().after(invoiceDate) && e.getInvoiceDate().before(endDate))
 				.collect(Collectors.toList());
+	}
+	
+	@Override
+	public List<InvoiceDocument> lastInvoices(String document, Integer numInvoices) throws InterruptedException {
+		int cont = 0;
+		List<InvoiceDocument> listInvoiceDocument = new ArrayList();
+		for(InvoiceDocument invoiceDocument : invoiceRepository.findAll()) {
+			if(invoiceDocument.getDocument().equals(document) && cont < numInvoices)
+				listInvoiceDocument.add(invoiceDocument);
+			cont++;
+		}
+		return listInvoiceDocument;
 	}
 
 }

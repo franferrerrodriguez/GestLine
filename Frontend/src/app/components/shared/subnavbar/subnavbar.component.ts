@@ -16,7 +16,6 @@ export class SubnavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("OK!!!!");
     this.getClientManagementData();
   }
 
@@ -27,7 +26,6 @@ export class SubnavbarComponent implements OnInit {
       .subscribe(
         data => {
           this.data = data.result;
-          console.log("ok" + data);
         },
         error => {
           console.log(error);

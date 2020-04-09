@@ -1,10 +1,9 @@
 <app-spinner *ngIf="loading" class="spinner"></app-spinner>
 
-<app-twosection *ngIf="!loading">
-    <div content1>
-        Content form parent 1
+<app-onesection *ngIf="!loading">
+    <div content>
+        <app-chart-invoices (chartSelectedEmit)="setChartSelected($event)"></app-chart-invoices>
+        <hr>
+        <app-resume-invoice [chartSelected]="chartSelected"></app-resume-invoice>
     </div>
-    <div content2>
-        Content form parent 2
-    </div>
-</app-twosection>
+</app-onesection>

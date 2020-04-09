@@ -16,8 +16,8 @@ export class InvoiceService {
     "Access-Control-Allow-Origin": "*"
   });
 
-  getInvoiceByDocumentSrv(document: string, startDate:string, endDate:string): Observable<any> {
-    const url = API.msinvoicev1 + "betweenDates/" + document + "/" + startDate + "/" + endDate;
+  getInvoiceByDocumentSrv(document: string, numInvoices:number): Observable<any> {
+    const url = API.msinvoicev1 + "lastInvoices/" + document + "/" + numInvoices;
     return this.http
       .get(
         url,

@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class InvoicesComponent implements OnInit {
 
   public loading:boolean;
+  public currentInvoice:number;
+  public chartSelected:any;
 
   constructor() { 
     this.loading = true;
@@ -17,6 +19,11 @@ export class InvoicesComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 500);
+  }
+
+  setChartSelected($event){
+    console.log(this.chartSelected);
+    this.chartSelected = $event;
   }
 
 }

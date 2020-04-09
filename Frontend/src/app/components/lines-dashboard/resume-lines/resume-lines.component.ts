@@ -9,6 +9,7 @@ import { ContractService } from '../../../services/contract.service';
 })
 export class ResumeLinesComponent implements OnInit {
 
+  public title:string;
   public loading:boolean;
   public contractData:any;
   public document:string;
@@ -30,8 +31,9 @@ export class ResumeLinesComponent implements OnInit {
     .getContractByDocumentSrv(document)
     .subscribe(
       data => {
-        this.contractData = data.result;
         this.loading = false;
+        this.contractData = data.result;
+        this.title = "Líneas (" + this.contractData.contractName + ")";
       },
       error => {
         console.log(error);

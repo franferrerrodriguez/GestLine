@@ -102,11 +102,11 @@ public class Controller {
 	
 	@RequestMapping(value = "/betweenDates/{document}/{startDate}/{endDate}", method = RequestMethod.GET)
 	@HystrixCommand()
-	public ResponseEntity<Response<List<InvoiceDocument>>> invoiceByDocument(@PathVariable String document, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) throws InterruptedException {
+	public ResponseEntity<Response<List<InvoiceDocument>>> betweenDates(@PathVariable String document, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) throws InterruptedException {
 		
 		String port = environment.getProperty("local.server.port");
 
-		LOGGER.info(String.format("Called endpoint: 'invoiceAll' | Port: '%s'", port));
+		LOGGER.info(String.format("Called endpoint: 'betweenDates' | Port: '%s'", port));
 		
 		Response<List<InvoiceDocument>> response;
 		HttpStatus httpStatus;
@@ -122,7 +122,30 @@ public class Controller {
 		
 	}
 	
+	@RequestMapping(value = "/lastInvoices/{document}/{numInvoices}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<List<InvoiceDocument>>> lastInvoices(@PathVariable String document, @PathVariable Integer numInvoices) throws InterruptedException {
+		
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'lastInvoices' | Port: '%s'", port));
+		
+		Response<List<InvoiceDocument>> response;
+		HttpStatus httpStatus;
+		try {
+			response = new Response<>(invoiceService.lastInvoices(document, numInvoices));
+			httpStatus = HttpStatus.OK;
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
 	@RequestMapping(value = "downloadInvoice/{fileName:.+}", method = RequestMethod.GET)
+	@HystrixCommand()
     public StreamingResponseBody downloadInvoice(HttpServletResponse response, @PathVariable("fileName") String fileName) throws IOException {
 		
         response.setContentType("application/pdf");
@@ -139,6 +162,7 @@ public class Controller {
     }
 	
 	@RequestMapping("/showInvoice/{fileName:.+}")
+	@HystrixCommand()
 	public void showInvoice(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("fileName") String fileName) throws IOException {
 

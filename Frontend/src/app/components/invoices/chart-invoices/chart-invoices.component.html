@@ -1,28 +1,10 @@
-<style>
-    .prueba{
-        background-color: #8577d4;
-        color: #fff;
-        height: 60px;
-        line-height: 60px;
-        font-weight: bold;
-        padding-left: 20px;
-        cursor: pointer;
-    }
-    .prueba span{
-        right: 0px;
-    }
-</style>
-
-<div *ngIf="invoiceData">
-    <div class="prueba" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
-        Facturas últimos 6 meses
-        <span>
-            <i class="fas fa-angle-down rotate-icon"></i>
-        </span>
-        
+<div *ngIf="invoiceChartData">
+    <div class="header-component" data-toggle="collapse" href="#collapseChartInvoice" aria-expanded="true" aria-controls="collapseExample">
+        {{ title }}
+        <i class="fas fa-angle-down rotate-icon"></i>
     </div>
-    <div class="collapse show" id="collapseExample">
-        <div style="display: block">
+    <div class="collapse show" id="collapseChartInvoice">
+        <div style="display: block;">
             <canvas mdbChart
                 [chartType]="chartType"
                 [datasets]="chartDatasets"
@@ -30,7 +12,6 @@
                 [colors]="chartColors"
                 [options]="chartOptions"
                 [legend]="false"
-                (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)">
             </canvas>
         </div>

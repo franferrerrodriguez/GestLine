@@ -14,4 +14,6 @@ public interface IInvoiceService {
 	
 	List<InvoiceDocument> findBetweenDates(String document, Date startDate ,Date endDate) throws InterruptedException;
 	
+	List<InvoiceDocument> lastInvoices(String document, Integer numInvoices) throws InterruptedException;
+	
 }
