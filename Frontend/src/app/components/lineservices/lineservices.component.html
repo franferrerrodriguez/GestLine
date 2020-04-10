@@ -1,10 +1,40 @@
 <app-spinner *ngIf="loading" class="spinner"></app-spinner>
 
-<app-twosection *ngIf="!loading">
-    <div content1>
-        Content form parent 1
+<app-onesection *ngIf="!loading">
+    <div content>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div  *ngFor="let line of lines;let index = index;">
+                <div *ngIf="line.contractServices && line.contractServices.length > 0">
+                    <div class="header-component" data-toggle="collapse" [attr.href]="'#collapseLines' + index" aria-expanded="true" aria-controls="collapseExample">
+                        {{ line.phone }} ({{ line.contractType | contractType }})
+                        <i class="fas fa-angle-down rotate-icon"></i>
+                    </div>
+                    <div class="collapse show" id="collapseLines{{ index }}">
+                        <div class="card" style="text-align:center;">
+                            <div class="form-row">
+                                <div class="form-group col-md-6"
+                                *ngFor="let service of line.contractServices;">
+                                    <label>{{ service.name }}</label>
+                                    <div class="switch">
+                                        <label>
+                                            <input type="checkbox" 
+                                            (change)="onChange(line.phone + '_' + service.id, $event.target.checked)"
+                                            [checked]="service.active">
+                                            <span class="lever"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-danger" role="alert" 
+                    *ngIf="!line.contractServices || line.contractServices.length == 0">
+                    No existen servicios disponibles para la línea {{ line.phone }} ({{ line.contractType | contractType }}).
+                </div>
+                <br>
+            </div>
+            <button>submit</button>
+        </form>
     </div>
-    <div content2>
-        Content form parent 2
-    </div>
-</app-twosection>
+</app-onesection>

@@ -6,42 +6,54 @@ values(1, '48640904K', '2020-01-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
 values(1, 1, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(2, 1, '966343313', 10, 21, 2.10, 12.10);
+values(2, 1, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(3, 1, '966343313', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(2, '48640904K', '2020-02-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(3, 2, '638538155', 60, 21, 12.705, 73.205);
+values(4, 2, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(4, 2, '966343313', 10, 21, 2.10, 12.10);
+values(5, 2, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(6, 2, '966343313', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(3, '48640904K', '2020-03-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(5, 3, '638538155', 60, 21, 12.705, 73.205);
+values(7, 3, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(6, 3, '966343313', 10, 21, 2.10, 12.10);
+values(8, 3, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(9, 3, '966343313', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(4, '48640904K', '2020-04-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(7, 4, '638538155', 60, 21, 12.705, 73.205);
+values(10, 4, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(8, 4, '966343313', 10, 21, 2.10, 12.10);
+values(11, 4, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(12, 4, '966343313', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(5, '48640904K', '2020-05-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(9, 5, '638538155', 60, 21, 12.705, 73.205);
+values(13, 5, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(10, 5, '966343313', 10, 21, 2.10, 12.10);
+values(14, 5, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(15, 5, '966343313', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(6, '48640904K', '2020-06-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(11, 6, '638538155', 60, 21, 12.705, 73.205);
+values(16, 6, '638538155', 60, 21, 12.705, 73.205);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(12, 6, '966343313', 10, 21, 2.10, 12.10);
+values(17, 6, '639733059', 10, 21, 2.10, 12.10);
+insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
+values(18, 6, '966343313', 10, 21, 2.10, 12.10);
 
 /* -------- */
 /* CLIENT 2 */
@@ -49,41 +61,41 @@ values(12, 6, '966343313', 10, 21, 2.10, 12.10);
 insert into invoicedocument(id, document, invoice_date)
 values(7, '48642036A', '2020-01-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(13, 7,'660444027', 48, 21, 10.08, 58.08);
+values(19, 7,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(14, 7, '966344334', 10, 21, 2.10, 12.10);
+values(20, 7, '966344334', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(8, '48642036A', '2020-02-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(15, 8,'660444027', 48, 21, 10.08, 58.08);
+values(21, 8,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(16, 8, '966344334', 10, 21, 2.10, 12.10);
+values(22, 8, '966344334', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(9, '48642036A', '2020-03-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(17, 9,'660444027', 48, 21, 10.08, 58.08);
+values(23, 9,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(18, 9, '966344334', 10, 21, 2.10, 12.10);
+values(24, 9, '966344334', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(10, '48642036A', '2020-04-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(19, 10,'660444027', 48, 21, 10.08, 58.08);
+values(25, 10,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(20, 10, '966344334', 10, 21, 2.10, 12.10);
+values(26, 10, '966344334', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(11, '48642036A', '2020-05-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(21, 11,'660444027', 48, 21, 10.08, 58.08);
+values(27, 11,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(22, 11, '966344334', 10, 21, 2.10, 12.10);
+values(28, 11, '966344334', 10, 21, 2.10, 12.10);
 
 insert into invoicedocument(id, document, invoice_date)
 values(12, '48642036A', '2020-06-01');
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(23, 12,'660444027', 48, 21, 10.08, 58.08);
+values(29, 12,'660444027', 48, 21, 10.08, 58.08);
 insert into invoice(id, invoice_document, phone, amount, tax, tax_amount, total_amount)
-values(24, 12, '966344334', 10, 21, 2.10, 12.10);
+values(30, 12, '966344334', 10, 21, 2.10, 12.10);

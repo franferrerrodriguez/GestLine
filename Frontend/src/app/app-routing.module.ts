@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'invoices', component: InvoicesComponent, canActivate:[LoginGuard] },
   { path: 'invoices/:id', component: InvoicesComponent, canActivate:[LoginGuard] },
   { path: 'lineservices', component: LineservicesComponent, canActivate:[LoginGuard] },
+  { path: 'lineservices/:line', component: LineservicesComponent, canActivate:[LoginGuard] },
   { path: 'settings', component: SettingsComponent, canActivate:[LoginGuard] },
   { path: 'notifications', component: NotificationsComponent, canActivate:[LoginGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'lines-dashboard' }

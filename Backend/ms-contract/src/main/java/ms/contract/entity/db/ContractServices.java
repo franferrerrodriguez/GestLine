@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ContractServices {
 
 	@Id
-	@JsonIgnore
 	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 	

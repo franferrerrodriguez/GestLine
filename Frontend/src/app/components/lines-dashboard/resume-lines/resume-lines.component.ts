@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { ContractService } from '../../../services/contract.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resume-lines',
@@ -14,8 +15,7 @@ export class ResumeLinesComponent implements OnInit {
   public contractData:any;
   public document:string;
 
-  constructor(private authService: AuthService, 
-    private contractService: ContractService) { 
+  constructor(private router: Router, private authService: AuthService, private contractService: ContractService) { 
     this.loading = true;
   }
 
@@ -44,6 +44,10 @@ export class ResumeLinesComponent implements OnInit {
 
   byteToGb(param:number){
     return param / 1024 / 1024 / 1024;
+  }
+
+  selectedLine(line:any){
+    this.router.navigate(['/lineservices', line]);
   }
 
 }
