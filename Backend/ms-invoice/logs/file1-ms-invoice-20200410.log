@@ -1,0 +1,14 @@
+2020-04-10 03:25:22 [restartedMain] INFO  ms.invoice.MsInvoiceApplication - No active profile set, falling back to default profiles: default
+2020-04-10 03:25:29 [restartedMain] INFO  ms.invoice.MsInvoiceApplication - Started MsInvoiceApplication in 11.665 seconds (JVM running for 12.339)
+2020-04-10 03:25:29 [hystrix-Controller-1] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:25:29 [hystrix-Controller-2] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:24 [hystrix-Controller-3] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:24 [hystrix-Controller-4] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:37 [restartedMain] INFO  ms.invoice.MsInvoiceApplication - No active profile set, falling back to default profiles: default
+2020-04-10 03:26:44 [restartedMain] INFO  ms.invoice.MsInvoiceApplication - Started MsInvoiceApplication in 11.73 seconds (JVM running for 12.443)
+2020-04-10 03:26:44 [hystrix-Controller-1] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:44 [hystrix-Controller-2] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:46 [hystrix-Controller-3] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:26:46 [hystrix-Controller-4] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:27:10 [hystrix-Controller-5] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'
+2020-04-10 03:27:10 [hystrix-Controller-6] INFO  ms.invoice.controller.Controller - Called endpoint: 'lastInvoices' | Port: '8003'

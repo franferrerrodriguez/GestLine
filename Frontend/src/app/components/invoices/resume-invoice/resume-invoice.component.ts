@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { InvoiceService } from 'src/app/services/invoice.service';
-import { Utils } from 'src/app/Utils/Utils.class';
 
 @Component({
   selector: 'app-resume-invoice',
@@ -18,11 +18,11 @@ export class ResumeInvoiceComponent implements OnInit {
   public error:any;
   @Input() chartSelected: any;
 
-  constructor(private authService: AuthService, private invoiceService: InvoiceService) { }
+  constructor(private activatedRoute:ActivatedRoute, private authService: AuthService, private invoiceService: InvoiceService) { }
 
   ngOnInit(): void {
     this.loading = false;
-    this.title = "Últimas 6 facturas";
+    this.title = "Resumen de factura";
     this.numInvoices = 6;
     this.document = this.authService.getCurrentUser().document;
     this.getInvoiceByDocument();
@@ -37,7 +37,11 @@ export class ResumeInvoiceComponent implements OnInit {
         data => {
           this.invoiceResumeData = data.result;
           this.loading = false;
-          console.log(this.invoiceResumeData);
+          this.activatedRoute.params.subscribe(params => {
+            let invoice = this.invoiceService.getInvoiceById(params['id'], this.invoiceResumeData);
+            if(invoice)
+              this.chartSelected = invoice;
+         });
         },
         error => {
           console.log(error);

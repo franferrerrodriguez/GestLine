@@ -26,4 +26,13 @@ export class InvoiceService {
     .pipe(map(data => data));
   }
 
+  getInvoiceById(invoiceId:number, invoices:any[]){
+    let invoiceReturn:any = null;
+    invoices.forEach(function (invoice) {
+      if(invoice.id == invoiceId)
+        invoiceReturn = invoice;
+    });
+    return invoiceReturn;
+  }
+
 }

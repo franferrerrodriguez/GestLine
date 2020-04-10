@@ -21,7 +21,6 @@ export class ChartInvoicesComponent implements OnInit {
   public monthLabel: Array<String>;
   public chartSelected:any;
   @Output() chartSelectedEmit = new EventEmitter();
-  @Input() width: any;
 
   constructor(private router: Router, private authService: AuthService, private invoiceService: InvoiceService) { }
 
@@ -105,21 +104,15 @@ export class ChartInvoicesComponent implements OnInit {
   }
 
   public chartClicked(e: any): void {
-    let index: number;
+    let currentInvoice:any;
     if(e.active && e.active.length > 0 && this.invoiceChartData){
-      index = e.active[0]._index;
-      switch(this.router.url) {
-        case "/lines-dashboard": {
-          this.router.navigate(['/invoices']);
-          break;
-        }
-        case "/invoices": {
-          this.chartSelectedEmit.emit(this.invoiceChartData[index]);
-          break;
-        }
+      currentInvoice = this.invoiceChartData[e.active[0]._index];
+      if(this.router.url.includes('/lines-dashboard')){
+        this.router.navigate(['/invoices', currentInvoice.id]);
+      }else if(this.router.url.includes('/invoices')){
+        this.chartSelectedEmit.emit(currentInvoice);
       }
     }
-
   }
 
 }

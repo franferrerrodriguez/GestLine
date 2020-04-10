@@ -1,9 +1,14 @@
 <div *ngIf="invoiceResumeData">
     <div class="header-component" data-toggle="collapse" href="#collapseResumeInvoice" aria-expanded="true" aria-controls="collapseExample">
-        TITULO
+        {{ title }}
         <i class="fas fa-angle-down rotate-icon"></i>
     </div>
     <div class="collapse show" id="collapseResumeInvoice">
-        {{ chartSelected.id }}
+        <div *ngIf="chartSelected">
+            {{ chartSelected.id }}
+        </div>
+        <div *ngIf="!chartSelected">
+            No existen facturas
+        </div>
     </div>
 </div>

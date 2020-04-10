@@ -11,7 +11,7 @@ export class InvoicesComponent implements OnInit {
   public currentInvoice:number;
   public chartSelected:any;
 
-  constructor() { 
+  constructor() {
     this.loading = true;
   }
 
@@ -21,8 +21,7 @@ export class InvoicesComponent implements OnInit {
     }, 500);
   }
 
-  setChartSelected($event){
-    console.log(this.chartSelected);
+  setChartSelected($event) {
     this.chartSelected = $event;
   }
 
