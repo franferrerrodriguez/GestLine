@@ -64,8 +64,7 @@ export class ChartInvoicesComponent implements OnInit {
         totalImport += invoice.totalAmount;
       });
 
-      let newDate = new Date(invoiceDocument.invoiceDate);
-      month = utils.getMonthByNumber(newDate.getMonth() + 1);
+      month = utils.getMonthByNumber(new Date(invoiceDocument.invoiceDate));
 
       monthLabel.push(month);
       importsLabel.push(+totalImport.toFixed(2));

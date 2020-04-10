@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { InvoiceService } from 'src/app/services/invoice.service';
+import { Utils } from '../../../Utils/Utils.class';
 
 @Component({
   selector: 'app-resume-invoice',
@@ -14,8 +15,10 @@ export class ResumeInvoiceComponent implements OnInit {
   public loading:boolean;
   public invoiceResumeData:any;
   public document:string;
+  public month:string;
   public numInvoices:number;
   public error:any;
+  public url:string;
   @Input() chartSelected: any;
 
   constructor(private activatedRoute:ActivatedRoute, private authService: AuthService, private invoiceService: InvoiceService) { }
@@ -26,6 +29,14 @@ export class ResumeInvoiceComponent implements OnInit {
     this.numInvoices = 6;
     this.document = this.authService.getCurrentUser().document;
     this.getInvoiceByDocument();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    let utils = new Utils();
+    if(this.chartSelected){
+      this.month = utils.getMonthByNumber(new Date(this.chartSelected.invoiceDate));
+      console.log(this.chartSelected);
+    }
   }
 
   getInvoiceByDocument() {
@@ -42,6 +53,8 @@ export class ResumeInvoiceComponent implements OnInit {
             if(invoice)
               this.chartSelected = invoice;
          });
+         let utils = new Utils();
+         this.month = utils.getMonthByNumber(new Date(this.chartSelected.invoiceDate));
         },
         error => {
           console.log(error);
@@ -52,6 +65,14 @@ export class ResumeInvoiceComponent implements OnInit {
     }else{
       this.error = "";
     }
+  }
+
+  downloadInvoice(){
+    this.url = this.invoiceService.downloadInvoice("Factura.pdf");
+  }
+
+  showInvoice(){
+    this.url = this.invoiceService.showInvoice("Factura.pdf");
   }
 
 }

@@ -45,9 +45,9 @@ public class Controller {
 	@Autowired
 	private IInvoiceService invoiceService;
 	
-	private static final String EXTERNAL_FILE_PATH = "./";
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
+	
+	private static final String EXTERNAL_FILE_PATH = "./src/main/resources/downloadinvoices/";
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	@HystrixCommand()
@@ -161,7 +161,7 @@ public class Controller {
         
     }
 	
-	@RequestMapping("/showInvoice/{fileName:.+}")
+	@RequestMapping(value = "/showInvoice/{fileName:.+}", method = RequestMethod.GET)
 	@HystrixCommand()
 	public void showInvoice(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("fileName") String fileName) throws IOException {

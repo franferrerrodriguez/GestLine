@@ -35,4 +35,12 @@ export class InvoiceService {
     return invoiceReturn;
   }
 
+  downloadInvoice(name:string){
+    return API.msinvoicev1 + "downloadInvoice/" + name;
+  }
+
+  showInvoice(name:string){
+    return API.msinvoicev1 + "showInvoice/" + name;
+  }
+
 }
