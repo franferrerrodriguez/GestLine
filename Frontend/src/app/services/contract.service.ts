@@ -26,4 +26,15 @@ export class ContractService {
     .pipe(map(data => data));
   }
 
+  modifyContracts(contracts: string[]): Observable<any> {
+    const url = API.mscontractv1 + "modifyContracts";
+    return this.http
+      .post<String>(
+        url,
+        contracts,
+        { headers: this.headers }
+      )
+    .pipe(map(data => data));
+  }
+
 }

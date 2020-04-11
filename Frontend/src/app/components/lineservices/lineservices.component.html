@@ -18,7 +18,7 @@
                                     <div class="switch">
                                         <label>
                                             <input type="checkbox" 
-                                            (change)="onChange(line.phone + '_' + service.id, $event.target.checked)"
+                                            (change)="onChange(service.id, $event.target.checked)"
                                             [checked]="service.active">
                                             <span class="lever"></span>
                                         </label>
@@ -34,7 +34,8 @@
                 </div>
                 <br>
             </div>
-            <button>submit</button>
+            <button type="submit" class="btn btn-outline-secondary waves-effect"
+            [disabled]="!enabledBtnSave">Guardar cambios</button>
         </form>
     </div>
 </app-onesection>

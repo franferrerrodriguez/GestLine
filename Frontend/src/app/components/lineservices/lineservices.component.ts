@@ -17,12 +17,15 @@ export class LineservicesComponent implements OnInit {
   public document:string;
   public lines:string[];
   public form: FormGroup;
-  public active:string[];
+  public contractsModify:string[];
+  public enabledBtnSave = false;
 
   constructor(private activatedRoute:ActivatedRoute, private authService: AuthService, private contractService: ContractService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.loading = false;
+
+    this.contractsModify = new Array();
 
     this.form = this.fb.group({
       name: this.fb.array([])
@@ -33,16 +36,23 @@ export class LineservicesComponent implements OnInit {
 
   onChange(name: string, isChecked: any) {
     let services = (this.form.controls.name as FormArray);
-    let index = services.controls.findIndex(x => x.value === name + "_A" || x.value === name + "_D");
+    let index = services.controls.findIndex(
+      x => x.value === name + ";A" || 
+      x.value === name + ";D");
     if(index > -1)
       services.removeAt(index);
-    services.push(new FormControl(name + (isChecked ? "_A" : "_D")));
-    console.log(services);
+    services.push(new FormControl(name + (isChecked ? ";A" : ";D")));
+    
+    if(services.controls.length > 0)
+      this.enabledBtnSave = true;
   }
 
   submit() {
-    this.active = this.form.value.name;
-    console.log(this.active);
+    this.contractsModify = this.form.value.name;
+    if(this.contractsModify.length > 0)
+      this.modifyContracts();
+    else
+      console.log("ko");
   }
 
   getContractByDocument(document:string) {
@@ -72,6 +82,24 @@ export class LineservicesComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  modifyContracts() {
+    this.loading = true;
+
+    return this.contractService
+    .modifyContracts(this.contractsModify)
+    .subscribe(
+      data => {
+        this.enabledBtnSave = true;
+        location.reload();
+      },
+      error => {
+        console.log(error);
+        this.loading = false;
+      }
+    );
+
   }
 
 }
