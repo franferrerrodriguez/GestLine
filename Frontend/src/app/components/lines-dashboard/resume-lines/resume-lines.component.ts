@@ -45,8 +45,4 @@ export class ResumeLinesComponent implements OnInit {
     );
   }
 
-  selectedLine(line:any){
-    this.router.navigate(['/lineservices', line]);
-  }
-
 }

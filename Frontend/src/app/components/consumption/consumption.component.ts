@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { Utils } from '../../Utils/Utils.class';
 import { ContractService } from '../../services/contract.service';
@@ -14,8 +15,9 @@ export class ConsumptionComponent implements OnInit {
   public contractData:any;
   public document:string;
   public utils:Utils;
-
-  constructor(private authService: AuthService, private contractService: ContractService) { }
+  public contracts:string[];
+  
+  constructor(private activatedRoute:ActivatedRoute, private authService: AuthService, private contractService: ContractService) { }
 
   ngOnInit(): void {
     this.loading = false;
@@ -31,8 +33,13 @@ export class ConsumptionComponent implements OnInit {
     .subscribe(
       data => {
         this.loading = false;
-        this.contractData = data.result;
-        console.log(this.contractData);
+
+        // Get the contracts by all or URL phone
+        let phone:string;
+        this.activatedRoute.params.subscribe(params => {
+          phone = params['phone'];
+        });
+        this.contractData = this.utils.getContractsByPhone(data.result, phone);
       },
       error => {
         console.log(error);

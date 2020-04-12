@@ -27,26 +27,50 @@ export class  Utils {
             return "Noviembre";
          case 12:
             return "Diciembre";
-         default:
-            return null;
         }
     }
 
-    public byteToGb(param:number){
-      return +(param / 1024 / 1024 / 1024).toFixed(2);
+    public byteToGb(param:number, fixed:number = 2){
+      return +(param / 1024 / 1024 / 1024).toFixed(fixed);
     }
 
-    public getPercentage(partialBytes:number, totalBytes:number, round:boolean = false){
+   /**
+    * @number partialBytes
+    * @number totalBytes
+    * @boolean isByte (if is byte to gb)
+    * @boolean round (for absolut round)
+    * Method that calculates the percentage result partialBytes of totalBytes
+    * @returns Return the percentage partialBytes of totalBytes
+    */
+    public getPercentage(partialBytes:number, totalBytes:number, isByte:boolean = false, round:boolean = false){
       let percentage:number = 0;
       if(partialBytes != undefined && partialBytes != null 
          && totalBytes != undefined && totalBytes != null){
             if(totalBytes > 0 && partialBytes > 0){
-               percentage = +((this.byteToGb(partialBytes) * 100) / this.byteToGb(totalBytes)).toFixed(0);
+               if(!isByte)
+                  percentage = +((partialBytes * 100) / totalBytes).toFixed(0);
+               else
+                  percentage = +((this.byteToGb(partialBytes) * 100) / this.byteToGb(totalBytes)).toFixed(0);
+               //console.log(totalBytes + " - " + partialBytes);
+               //console.log(percentage);
                if(round)
                   percentage = Math.round(percentage / 10) * 10;
+            }else if(totalBytes == -1) {
+               percentage = 100;
             }
          }
          return percentage;
+    }
+
+    public getContractsByPhone(contract:any, phone:string = null){
+      let contractsReturn = new Array();
+      contract.contractLines.forEach(function (param) {
+        if(phone && param.phone == phone)
+        contractsReturn.push(param);
+        else if(!phone)
+        contractsReturn.push(param);
+      });
+      return contractsReturn;
     }
 
 }

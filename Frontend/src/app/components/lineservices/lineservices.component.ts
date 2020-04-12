@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
+import { Utils } from '../../Utils/Utils.class';
 import { ContractService } from '../../services/contract.service';
 
 @Component({
@@ -13,9 +14,10 @@ export class LineservicesComponent implements OnInit {
 
   public title:string;
   public loading:boolean;
+  public utils:Utils;
   public contractData:any;
   public document:string;
-  public lines:string[];
+  public contracts:string[];
   public form: FormGroup;
   public contractsModify:string[];
   public enabledBtnSave = false;
@@ -24,9 +26,8 @@ export class LineservicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
-
+    this.utils = new Utils();
     this.contractsModify = new Array();
-
     this.form = this.fb.group({
       name: this.fb.array([])
     });
@@ -62,19 +63,13 @@ export class LineservicesComponent implements OnInit {
     .subscribe(
       data => {
         this.loading = false;
-        this.contractData = data.result;
-        let line:string;
+
+        // Get the contracts by all or URL phone
+        let phone:string;
         this.activatedRoute.params.subscribe(params => {
-          line = params['line'];
+          phone = params['phone'];
         });
-        let lines = new Array();
-        this.contractData.contractLines.forEach(function (param) {
-          if(line && param.phone == line)
-            lines.push(param);
-          else if(!line)
-            lines.push(param);
-        });
-        this.lines = lines;
+        this.contractData = this.utils.getContractsByPhone(data.result, phone);
       },
       error => {
         console.log(error);

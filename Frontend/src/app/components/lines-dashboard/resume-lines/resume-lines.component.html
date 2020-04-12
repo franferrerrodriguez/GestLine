@@ -7,8 +7,9 @@
         <div class="card">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item cursor-hand" 
-                    *ngFor="let contract of contractData.contractLines;"
-                    (click)="selectedLine(contract.phone)">
+                    *ngFor="let contract of contractData.contractLines;" 
+                    [routerLink]="['/consumption', contract.phone]"
+                    style="height: 95px;">
                     <span class="font-weight-bold">
                         {{ contract.phone }} ({{ contract.contractType | contractType }})
                     </span>
@@ -23,6 +24,12 @@
                     <span *ngIf="contract.dataConsumption">
                         {{ utils.byteToGb(contract.dataConsumption.usageBytes) }} GB / 
                         {{ utils.byteToGb(contract.dataConsumption.totalBytes) }} GB
+                    </span>
+                    <span style="float:right; margin-top:-36px">
+                        <button type="button" class="btn btn-secondary" 
+                            [routerLink]="['/lineservices', contract.phone]">
+                            VER SERVICIOS
+                        </button>
                     </span>
                 </li>
             </ul>

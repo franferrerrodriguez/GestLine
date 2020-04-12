@@ -3,17 +3,17 @@
 <app-onesection *ngIf="!loading">
     <div content>
         <form [formGroup]="form" (ngSubmit)="submit()">
-            <div  *ngFor="let line of lines;let index = index;">
-                <div *ngIf="line.contractServices && line.contractServices.length > 0">
+            <div  *ngFor="let contract of contractData;let index = index;">
+                <div *ngIf="contract.contractServices && contract.contractServices.length > 0">
                     <div class="header-component" data-toggle="collapse" [attr.href]="'#collapseLines' + index" aria-expanded="true" aria-controls="collapseExample">
-                        {{ line.phone }} ({{ line.contractType | contractType }})
+                        {{ contract.phone }} ({{ contract.contractType | contractType }})
                         <i class="fas fa-angle-down rotate-icon"></i>
                     </div>
                     <div class="collapse show" id="collapseLines{{ index }}">
                         <div class="card" style="text-align:center;">
                             <div class="form-row">
                                 <div class="form-group col-md-6"
-                                *ngFor="let service of line.contractServices;">
+                                *ngFor="let service of contract.contractServices;">
                                     <label>{{ service.name }}</label>
                                     <div class="switch">
                                         <label>
@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <div class="alert alert-danger" role="alert" 
-                    *ngIf="!line.contractServices || line.contractServices.length == 0">
-                    No existen servicios disponibles para la línea {{ line.phone }} ({{ line.contractType | contractType }}).
+                    *ngIf="!contract.contractServices || contract.contractServices.length == 0">
+                    No existen servicios disponibles para la línea {{ contract.phone }} ({{ contract.contractType | contractType }}).
                 </div>
                 <br>
             </div>
