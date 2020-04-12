@@ -1,156 +1,32 @@
-2020-04-11 13:22:12 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 13:22:19 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.148 seconds (JVM running for 12.812)
-2020-04-11 13:23:49 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:23:51 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:24:56 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:26:00 [hystrix-Controller-4] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:27:25 [hystrix-Controller-5] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:27:33 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:28:44 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:28:48 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:28:57 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:29:11 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:29:13 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:29:46 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 13:29:53 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.272 seconds (JVM running for 13.248)
-2020-04-11 13:30:51 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:31:05 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:46:05 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 13:46:12 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.67 seconds (JVM running for 13.502)
-2020-04-11 13:47:55 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:48:16 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:48:17 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 13:49:58 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 13:50:02 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.733 seconds (JVM running for 243.186)
-2020-04-11 13:51:30 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:51:54 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:52:03 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:52:41 [hystrix-Controller-4] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:52:54 [hystrix-Controller-5] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:08 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:25 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:28 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:36 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:44 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:53:49 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 13:54:38 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:54:53 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:15 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:22 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:33 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:41 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:51 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:55:54 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 13:56:06 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:56:09 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:56:19 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:56:26 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:56:58 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:09 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:19 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:23 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:34 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:44 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:57:45 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:58:00 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:58:09 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 13:58:14 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:58:20 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 13:59:06 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:11 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:14 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:16 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:16 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:21 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:35 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 13:59:59 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:00:13 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:00:22 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:01:06 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:01:10 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:01:17 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:01:30 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:01:32 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:02:02 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:02:08 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:02:29 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 14:02:40 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 14:03:42 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:03:46 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.422 seconds (JVM running for 1066.822)
-2020-04-11 14:05:01 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:09:06 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 14:10:20 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:10:24 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.396 seconds (JVM running for 1465.583)
-2020-04-11 14:10:33 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:10:37 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.296 seconds (JVM running for 1478.27)
-2020-04-11 14:12:54 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:12:57 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 14:16:15 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:16:19 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.338 seconds (JVM running for 1820.528)
-2020-04-11 14:18:07 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:18:14 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.621 seconds (JVM running for 13.46)
-2020-04-11 14:19:54 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:19:56 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContracts' | Port: '8002'
-2020-04-11 14:21:18 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:21:40 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:21:44 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.419 seconds (JVM running for 223.295)
-2020-04-11 14:24:21 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:24:28 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.629 seconds (JVM running for 13.453)
-2020-04-11 14:25:21 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:25:24 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:26:44 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:26:48 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.458 seconds (JVM running for 153.017)
-2020-04-11 14:29:54 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:30:02 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.467 seconds (JVM running for 13.293)
-2020-04-11 14:30:18 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:30:26 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.673 seconds (JVM running for 13.51)
-2020-04-11 14:31:37 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:31:38 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:31:52 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:31:55 [hystrix-Controller-4] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:32:01 [hystrix-Controller-5] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:32:20 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:32:24 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.405 seconds (JVM running for 131.904)
-2020-04-11 14:32:56 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:32:59 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:33:17 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:33:19 [hystrix-Controller-4] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:33:34 [hystrix-Controller-5] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:33:36 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:33:39 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:33:41 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:39:33 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:39:58 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:39:59 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:40:00 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:40:02 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:40:02 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:40:07 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:40:07 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:40:09 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:41:32 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:41:41 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:41:45 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.361 seconds (JVM running for 692.293)
-2020-04-11 14:41:57 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:41:58 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 8.394 seconds (JVM running for 705.844)
-2020-04-11 14:42:19 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:42:27 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.593 seconds (JVM running for 13.44)
-2020-04-11 14:43:14 [restartedMain] INFO  ms.contract.MsContractApplication - No active profile set, falling back to default profiles: default
-2020-04-11 14:43:22 [restartedMain] INFO  ms.contract.MsContractApplication - Started MsContractApplication in 12.627 seconds (JVM running for 13.478)
-2020-04-11 14:44:49 [hystrix-Controller-1] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:44:51 [hystrix-Controller-2] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:44:52 [hystrix-Controller-3] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:46:58 [hystrix-Controller-4] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:46:59 [hystrix-Controller-5] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:47:03 [hystrix-Controller-6] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:47:03 [hystrix-Controller-7] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:47:04 [hystrix-Controller-8] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:48:19 [hystrix-Controller-9] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:48:21 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:48:21 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:48:35 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:49:02 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:49:05 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'modifyContractService' | Port: '8002'
-2020-04-11 14:49:05 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:49:25 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
-2020-04-11 14:49:58 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:44:49 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:44:58 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:45:14 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:46:22 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:46:40 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:47:01 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:47:16 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:47:36 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:47:52 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:48:22 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:48:50 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:48:51 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:48:54 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:49:06 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:49:07 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:49:07 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:49:08 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:49:53 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:29 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:30 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:34 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:36 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:40 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:44 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:44 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:50:48 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:03 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:07 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:09 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:16 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:19 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'
+2020-04-12 03:51:20 [hystrix-Controller-10] INFO  ms.contract.controller.Controller - Called endpoint: 'contractByDocument' | Port: '8002'

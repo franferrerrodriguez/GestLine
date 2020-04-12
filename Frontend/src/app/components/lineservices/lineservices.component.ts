@@ -69,11 +69,10 @@ export class LineservicesComponent implements OnInit {
         });
         let lines = new Array();
         this.contractData.contractLines.forEach(function (param) {
-          if(line && param.phone == line) {
+          if(line && param.phone == line)
             lines.push(param);
-          } else if(!line) {
+          else if(!line)
             lines.push(param);
-          }
         });
         this.lines = lines;
       },
@@ -91,8 +90,9 @@ export class LineservicesComponent implements OnInit {
     .modifyContracts(this.contractsModify)
     .subscribe(
       data => {
+        this.getContractByDocument(this.document);
         this.enabledBtnSave = true;
-        location.reload();
+        this.loading = false;
       },
       error => {
         console.log(error);

@@ -31,6 +31,9 @@ public class DataConsumption {
 	@Column(name = "usage_bytes_international")
 	private Double usageBytesInternational;
 	
+	@Column(name = "usage_bytes_bonus")
+	private Double usageBytesBonus;
+	
 	public DataConsumption() {
 		
 	}
@@ -81,6 +84,14 @@ public class DataConsumption {
 	
 	public void setUsageBytesInternational(Double usageBytesInternational) {
 		this.usageBytesInternational = usageBytesInternational;
+	}
+
+	public Double getUsageBytesBonus() {
+		return usageBytesBonus;
+	}
+
+	public void setUsageBytesBonus(Double usageBytesBonus) {
+		this.usageBytesBonus = usageBytesBonus;
 	}
 	
 }

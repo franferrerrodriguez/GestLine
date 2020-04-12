@@ -21,8 +21,8 @@
                     </span>
                     <br>
                     <span *ngIf="contract.dataConsumption">
-                        {{ byteToGb(contract.dataConsumption.usageBytes) }} GB / 
-                        {{ byteToGb(contract.dataConsumption.totalBytes) }} GB
+                        {{ utils.byteToGb(contract.dataConsumption.usageBytes) }} GB / 
+                        {{ utils.byteToGb(contract.dataConsumption.totalBytes) }} GB
                     </span>
                 </li>
             </ul>

@@ -7,8 +7,8 @@ values('48640904K', 'Pack Standart');
 /* LINE 1 */
 insert into lineconsumption(id, total_minuts, total_minuts_international, usage_minuts, usage_minuts_international, total_sms, usage_sms) 
 values('638538155', NULL, NULL, NULL, 0, 1000, 4);
-insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international) 
-values('638538155', 2147483648, 1073741824, 0, 429496729.6, 0);
+insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
+values('638538155', 2147483648, 1073741824, 1073741824, 429496729.6, 0, 214748364.8);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
 values('638538155', '48640904K', 'Tarifa Ilimitada + Datos', 'POSPAID', '89 012 60 232714958936F', '1111', '11111111', '4G', 0);
 insert into contractservices(id, contract_line_id, name, description, active) 
@@ -23,8 +23,8 @@ values(4, '638538155', 'SMS', 'Servicio que permite el envío de SMS', 0);
 /* LINE 2 */
 insert into lineconsumption(id, total_minuts, total_minuts_international, usage_minuts, usage_minuts_international, total_sms, usage_sms) 
 values('639733059', 500, 0, 35, 0, 1000, 12);
-insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international) 
-values('639733059', 2147483648, 1073741824, 0, 429496729.6, 0);
+insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
+values('639733059', 3221225472, 1073741824, 0, 462521547.6, 0, 0);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
 values('639733059', '48640904K', 'Tarifa 500min + Datos', 'PREPAID', '89 012 60 226314933435A', '1111', '11111111', '4G', 0);
 insert into contractservices(id, contract_line_id, name, description, active) 
@@ -51,8 +51,8 @@ values('48642036A', 'Pack Standart');
 /* LINE 1 */
 insert into lineconsumption(id, total_minuts, total_minuts_international, usage_minuts, usage_minuts_international, total_sms, usage_sms) 
 values('660444027', 200, 100, 22, 0, 1000, 4);
-insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international) 
-values('660444027', 3221225472, 1073741824, 0, 322122547.2, 0);
+insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
+values('660444027', 3221225472, 1073741824, 0, 322122547.2, 0, 0);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
 values('660444027', '48642036A', 'Tarifa 200min + Datos', 'PREPAID', '89 012 80 352115623323E', '1111', '11111111', '4G', 0);
 insert into contractservices(id, contract_line_id, name, description, active) 
