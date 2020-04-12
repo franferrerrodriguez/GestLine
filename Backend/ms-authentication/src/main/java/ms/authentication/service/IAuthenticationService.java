@@ -10,6 +10,6 @@ public interface IAuthenticationService {
 	
 	User userByDocument(String document) throws InterruptedException;
 
-	User checkLogin(String email, String password) throws InterruptedException;
+	User checkLogin(User user) throws InterruptedException;
 
 }

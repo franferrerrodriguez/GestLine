@@ -11,9 +11,7 @@ export class SubnavbarComponent implements OnInit {
 
   public data:any;
 
-  constructor(public authService: AuthService, private clientmanagementService: ClientmanagementService) { 
-
-  }
+  constructor(public authService: AuthService, private clientmanagementService: ClientmanagementService) { }
 
   ngOnInit(): void {
     this.getClientManagementData();

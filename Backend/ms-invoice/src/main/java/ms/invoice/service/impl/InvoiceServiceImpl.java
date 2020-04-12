@@ -39,11 +39,12 @@ public class InvoiceServiceImpl implements IInvoiceService {
 	@Override
 	public List<InvoiceDocument> lastInvoices(String document, Integer numInvoices) throws InterruptedException {
 		int cont = 0;
-		List<InvoiceDocument> listInvoiceDocument = new ArrayList();
+		List<InvoiceDocument> listInvoiceDocument = new ArrayList<InvoiceDocument>();
 		for(InvoiceDocument invoiceDocument : invoiceRepository.findAll()) {
-			if(invoiceDocument.getDocument().equals(document) && cont < numInvoices)
+			if(invoiceDocument.getDocument().equals(document) && cont < numInvoices) {
 				listInvoiceDocument.add(invoiceDocument);
-			cont++;
+				cont++;
+			}
 		}
 		return listInvoiceDocument;
 	}

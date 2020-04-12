@@ -1,12 +1,20 @@
 <nav class="navbar fixed-top subnavbar" *ngIf="data">
     <span class="navbar-text white-text">
-        <p class="h6">
-            {{ data.name }} 
-            {{ data.firstSurname }} 
-            {{ data.secondSurname }} - 
-            {{ data.document }} 
-            ({{ data.email }}) - 
-            {{ data.clientType }}
-        </p>
+        <div class="h6 left">
+            <span>{{ data.name | uppercase }} </span>
+            <span>{{ data.firstSurname | uppercase }} </span>
+            <span>{{ data.secondSurname | uppercase }} - </span>
+            <span>{{ data.document | uppercase }} - </span>
+            <span>{{ data.address.type | uppercase }} </span>
+            <span>{{ data.address.direction | uppercase }}, </span>
+            <span>Nº{{ data.address.number | uppercase }} - </span>
+            <span>{{ data.address.location | uppercase }} </span>
+            <span>({{ data.address.postalCode | uppercase }}) - </span>
+            <span>{{ data.address.province | uppercase }} - </span>
+            <span>{{ data.address.country | uppercase }}</span>
+        </div>
+        <div class="h6 right">
+            SEGMENTO {{ data.clientType }}
+        </div>
     </span>
 </nav>

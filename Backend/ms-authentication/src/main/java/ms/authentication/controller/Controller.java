@@ -93,7 +93,7 @@ public class Controller {
 
 		LOGGER.info(String.format("Called endpoint: 'checkLogin' | Port: '%s'", port));
 
-		User checkUser = authenticationService.checkLogin(user.getEmail(), user.getPassword());
+		User checkUser = authenticationService.checkLogin(user);
 		
 		Response<User> response;
 		HttpStatus httpStatus;

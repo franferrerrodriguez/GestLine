@@ -10,23 +10,41 @@
         <div style="margin-top:60px">
           <!-- Form -->
           <form style="color: #757575;" name="f" #f="ngForm" (ngSubmit)="onLogin(f)">
+
+            <!-- Documento -->
+            <div class="md-form" *ngIf="loginType == 1">
+              <input type="text" class="form-control" name="document" 
+                [(ngModel)]="user.document">
+              <label for="materialLoginFormDocument">Documento</label>
+            </div>
+
             <!-- Email -->
-            <div class="md-form">
-              <input type="email" class="form-control" name="email" [(ngModel)]="user.email" required>
+            <div class="md-form" *ngIf="loginType == 2">
+              <input type="email" class="form-control" name="email" [(ngModel)]="user.email">
               <label for="materialLoginFormEmail">E-mail</label>
             </div>
+            
             <!-- Password -->
             <div class="md-form" style="margin-top:40px;">
               <input type="password" class="form-control" name="password" [(ngModel)]="user.password" required>
               <label for="materialLoginFormPassword">Contraseña</label>
             </div>
+
+            <!-- Group of material radios -->
+            <div class="md-form">
+              <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios" 
+                (click)="setLoginType(1)"
+                [checked]="loginType == 1">
+              <label class="form-check-label" for="materialGroupExample1">Documento</label>
+            </div>
+            <div class="md-form">
+              <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" 
+                (click)="setLoginType(2)"
+                [checked]="loginType == 2">
+              <label class="form-check-label" for="materialGroupExample2">Email</label>
+            </div>
+
             <div style="margin-top:150px;">
-              <div class="d-flex justify-content-around">
-                <div>
-                  <!-- Forgot password -->
-                  <a href="">¿Olvidó la contraseña?</a>
-                </div>
-              </div>
               <!-- Sign in button -->
               <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Entrar</button>
             </div>

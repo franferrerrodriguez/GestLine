@@ -2,7 +2,7 @@ import { Component, OnInit, ɵConsole } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { Utils } from '../../../Utils/Utils.class';
 import { ContractService } from '../../../services/contract.service';
-import { Router } from '@angular/router';
+import { SearchService } from '../../../services/search.service';
 
 @Component({
   selector: 'app-resume-lines',
@@ -17,7 +17,7 @@ export class ResumeLinesComponent implements OnInit {
   public document:string;
   public utils:Utils;
 
-  constructor(private router: Router, private authService: AuthService, private contractService: ContractService) { 
+  constructor(private authService: AuthService, private contractService: ContractService, private searchService:SearchService) { 
     this.loading = true;
   }
 
@@ -35,7 +35,7 @@ export class ResumeLinesComponent implements OnInit {
     .subscribe(
       data => {
         this.loading = false;
-        this.contractData = data.result;
+        this.contractData = this.searchService.getContractsFilter(data.result);
         this.title = "Líneas (" + this.contractData.contractName + ")";
       },
       error => {

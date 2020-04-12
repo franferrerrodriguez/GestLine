@@ -62,15 +62,4 @@ export class  Utils {
          return percentage;
     }
 
-    public getContractsByPhone(contract:any, phone:string = null){
-      let contractsReturn = new Array();
-      contract.contractLines.forEach(function (param) {
-        if(phone && param.phone == phone)
-        contractsReturn.push(param);
-        else if(!phone)
-        contractsReturn.push(param);
-      });
-      return contractsReturn;
-    }
-
 }

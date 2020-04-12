@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { SearchService } from '../../../services/search.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,17 +10,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  private line:string;
-
-  constructor(private router: Router, public authService: AuthService) {
-    this.line = "";
-  }
+  constructor(private router: Router, public authService: AuthService, private searchService:SearchService) { }
 
   ngOnInit(): void { }
   
-  searchLine(search:string){
-    this.line = search;
-    console.log(this.line);
+  searchLine(phone:string){
+    this.searchService.searchPhone(phone);
   }
 
   onLogout() {

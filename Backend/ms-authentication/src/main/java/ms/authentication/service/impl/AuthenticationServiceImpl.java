@@ -26,10 +26,11 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 	}
 	
 	@Override
-	public User checkLogin(String email, String password) throws InterruptedException {
-		for(User user : authenticationRepository.findAll())
-			if(user.getEmail().equals(email) && user.getPassword().equals(password))
-				return user;
+	public User checkLogin(User user) throws InterruptedException {
+		for(User u : authenticationRepository.findAll())
+			if((u.getEmail().equals(user.getEmail()) || u.getDocument().equals(user.getDocument())) && 
+					u.getPassword().equals(user.getPassword()))
+				return u;
 		return null;
 	}
 

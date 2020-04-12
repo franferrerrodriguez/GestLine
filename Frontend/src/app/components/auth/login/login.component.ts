@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   public loading:boolean;
   public error:string;
+  public loginType:number;
 
   public user: User = {
     email: '',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
+    this.loginType = 1;
   }
 
   onLogin(form: NgForm) {
@@ -59,6 +61,10 @@ export class LoginComponent implements OnInit {
       console.log('Form not valid.');
       this.loading = false;
     }
+  }
+
+  setLoginType(loginType:number){
+    this.loginType = loginType;
   }
 
 }

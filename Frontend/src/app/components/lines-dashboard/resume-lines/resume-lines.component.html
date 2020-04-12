@@ -25,11 +25,9 @@
                         {{ utils.byteToGb(contract.dataConsumption.usageBytes) }} GB / 
                         {{ utils.byteToGb(contract.dataConsumption.totalBytes) }} GB
                     </span>
-                    <span style="float:right; margin-top:-36px">
-                        <button type="button" class="btn btn-secondary" 
-                            [routerLink]="['/lineservices', contract.phone]">
-                            VER SERVICIOS
-                        </button>
+                    <span>
+                        <button type="button" class="btn btn-secondary btnShowServices" 
+                            [routerLink]="['/lineservices', contract.phone]">VER SERVICIOS</button>
                     </span>
                 </li>
             </ul>

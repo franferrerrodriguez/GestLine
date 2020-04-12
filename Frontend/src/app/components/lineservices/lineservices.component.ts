@@ -14,7 +14,6 @@ export class LineservicesComponent implements OnInit {
 
   public title:string;
   public loading:boolean;
-  public utils:Utils;
   public contractData:any;
   public document:string;
   public contracts:string[];
@@ -26,7 +25,6 @@ export class LineservicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
-    this.utils = new Utils();
     this.contractsModify = new Array();
     this.form = this.fb.group({
       name: this.fb.array([])
@@ -69,7 +67,7 @@ export class LineservicesComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
           phone = params['phone'];
         });
-        this.contractData = this.utils.getContractsByPhone(data.result, phone);
+        this.contractData = this.contractService.getContractsByPhone(data.result, phone);
       },
       error => {
         console.log(error);

@@ -6,3 +6,17 @@
     line-height: 5px;
     z-index: 20 !important;
 }
+
+span {
+    width: 100%;
+}
+
+.left{
+    float:left;
+    text-align:left;
+}
+
+.right{
+    float:right;
+    text-align:right;
+}
