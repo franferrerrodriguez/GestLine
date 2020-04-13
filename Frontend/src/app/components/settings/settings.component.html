@@ -3,50 +3,190 @@
 <app-onesection *ngIf="!loading">
     <div content>
         <form>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-              </div>
+          <h5>Datos del cliente:</h5>
+          <hr class="hr-primary"/>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="inputSegment">Segmento:</label>
+              <input type="text" class="form-control" disabled>
             </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <div class="form-group col-md-2">
+              <label for="inputDocumentType">Tipo documento:</label>
+              <select class="form-control">
+                <option>NIF</option>
+                <option>NIE</option>
+                <option>CIF</option>
+                <option>PASAPORTE</option>
+              </select>
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <div class="form-group col-md-8">
+              <label for="inputDocument">Documento</label>
+              <input type="text" class="form-control" placeholder="Documento">
             </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">Email:</label>
+              <input type="email" class="form-control" placeholder="Email">
             </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Contraseña:</label>
+              <input type="password" class="form-control" placeholder="Contraseña">
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-          </form>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Nombre:</label>
+              <input type="text" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputFirstSurname">Primer apellido:</label>
+              <input type="text" class="form-control" placeholder="Primer apellido">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputSecondSurname">Segundo apellido:</label>
+              <input type="text" class="form-control" placeholder="Segundo apellido">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputBirthDate">Fecha nacimiento:</label>
+              <input type="date" class="form-control" placeholder="Fecha nacimiento">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputLocation">Localidad:</label>
+              <input type="text" class="form-control" placeholder="Localidad">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputPostalCode">Código Postal:</label>
+              <input type="text" class="form-control" placeholder="Código Postal">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputProvince">Provincia:</label>
+              <input type="text" class="form-control" placeholder="Provincia">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputCountry">País:</label>
+              <input type="text" class="form-control" placeholder="País">
+            </div>
+          </div>
+
+          <h5>Datos de dirección:</h5>
+          <hr class="hr-primary"/>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAddressType">Tipo vía:</label>
+              <select class="form-control">
+                <option>Calle</option>
+                <option>Avenida</option>
+                <option>Callejón</option>
+                <option>Camino</option>
+                <option>Carretera</option>
+                <option>Carril</option>
+                <option>Parque</option>
+                <option>Pasaje</option>
+                <option>Paseo</option>
+                <option>Plaza</option>
+                <option>Puente</option>
+                <option>Ronda</option>
+                <option>Sendero</option>
+                <option>Travesía</option>
+                <option>Túnel</option>
+                <option>Urbanización</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAddressDirection">Nombre vía:</label>
+              <input type="text" class="form-control" placeholder="Nombre vía">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputAddressNumber">Número:</label>
+              <input type="text" class="form-control" placeholder="Número">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputAddressStairs">Escalera:</label>
+              <input type="text" class="form-control" placeholder="Escalera">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputAddressFloor">Planta:</label>
+              <input type="text" class="form-control" placeholder="Planta">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputAddressDoor">Puerta:</label>
+              <input type="text" class="form-control" placeholder="Puerta">
+            </div>
+          </div>
+
+          <h5>Datos de facturación:</h5>
+          <hr class="hr-primary"/>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputBillingType">Tipo vía:</label>
+              <select class="form-control">
+                <option>Calle</option>
+                <option>Avenida</option>
+                <option>Callejón</option>
+                <option>Camino</option>
+                <option>Carretera</option>
+                <option>Carril</option>
+                <option>Parque</option>
+                <option>Pasaje</option>
+                <option>Paseo</option>
+                <option>Plaza</option>
+                <option>Puente</option>
+                <option>Ronda</option>
+                <option>Sendero</option>
+                <option>Travesía</option>
+                <option>Túnel</option>
+                <option>Urbanización</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputBillingDirection">Nombre vía:</label>
+              <input type="text" class="form-control" placeholder="Nombre vía">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputBillingNumber">Número:</label>
+              <input type="text" class="form-control" placeholder="Número">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputBillingStairs">Escalera:</label>
+              <input type="text" class="form-control" placeholder="Escalera">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputBillingFloor">Planta:</label>
+              <input type="text" class="form-control" placeholder="Planta">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputBillingDoor">Puerta:</label>
+              <input type="text" class="form-control" placeholder="Puerta">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="inputEntity">Entidad:</label>
+              <input type="text" class="form-control" placeholder="XX00">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputOffice">Oficina:</label>
+              <input type="text" class="form-control" placeholder="0000">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputDc">DC:</label>
+              <input type="text" class="form-control" placeholder="0000">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAccount">Número de cuenta:</label>
+              <input type="text" class="form-control" placeholder="000000000000">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-secondary waves-effect">Guardar cambios</button>
+        </form>
     </div>
 </app-onesection>

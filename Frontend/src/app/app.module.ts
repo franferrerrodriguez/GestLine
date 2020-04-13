@@ -21,7 +21,6 @@ import { OnesectionComponent } from './components/shared/sections/onesection/one
 import { TwosectionComponent } from './components/shared/sections/twosection/twosection.component';
 import { ThreesectionComponent } from './components/shared/sections/threesection/threesection.component';
 import { LineservicesComponent } from './components/lineservices/lineservices.component';
-import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ContractTypePipe } from './pipes/contract-type.pipe';
 import { ResumeLinesComponent } from './components/lines-dashboard/resume-lines/resume-lines.component';
 
@@ -45,7 +44,6 @@ import { ResumeLinesComponent } from './components/lines-dashboard/resume-lines/
     TwosectionComponent,
     ThreesectionComponent,
     LineservicesComponent,
-    NotificationsComponent,
     ContractTypePipe
   ],
   imports: [

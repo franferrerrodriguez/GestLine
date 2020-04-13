@@ -9,7 +9,7 @@ import { ClientmanagementService } from '../../../services/clientmanagement.serv
 })
 export class SubnavbarComponent implements OnInit {
 
-  public data:any;
+  public clientData:any;
 
   constructor(public authService: AuthService, private clientmanagementService: ClientmanagementService) { }
 
@@ -23,7 +23,8 @@ export class SubnavbarComponent implements OnInit {
       .getData(this.authService.getCurrentUser().document)
       .subscribe(
         data => {
-          this.data = data.result;
+          this.clientData = data.result;
+          console.log(data.result);
         },
         error => {
           console.log(error);

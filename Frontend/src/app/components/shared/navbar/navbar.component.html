@@ -1,4 +1,3 @@
-<!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color fixed-top">
     <a class="navbar-brand" href="/">GestLine</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -29,11 +28,6 @@
               <input class="form-control mr-sm-2" type="number" placeholder="Buscar líneas" aria-label="Search" (keyup)="searchLine(search.value)" #search>
             </div>
         </form>
-        <li class="nav-item" title="Notificaciones" [routerLink]="['notifications']">
-          <a class="nav-link waves-effect waves-light">
-            <i class="fas fa-bell"></i>
-          </a>
-        </li>
         <li class="nav-item dropdown" title="Opciones de usuario">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -47,4 +41,3 @@
       </ul>
     </div>
 </nav>
-<!--/.Navbar -->

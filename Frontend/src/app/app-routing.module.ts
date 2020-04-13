@@ -6,7 +6,6 @@ import { ConsumptionComponent }      from './components/consumption/consumption.
 import { InvoicesComponent }      from './components/invoices/invoices.component';
 import { LineservicesComponent }      from './components/lineservices/lineservices.component';
 import { SettingsComponent }      from './components/settings/settings.component';
-import { NotificationsComponent }      from './components/notifications/notifications.component';
 import { LoginGuard } from './components/auth/guards/login.guard';
 import { LogoutGuard } from './components/auth/guards/logout.guard';
 
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'lineservices', component: LineservicesComponent, canActivate:[LoginGuard] },
   { path: 'lineservices/:phone', component: LineservicesComponent, canActivate:[LoginGuard] },
   { path: 'settings', component: SettingsComponent, canActivate:[LoginGuard] },
-  { path: 'notifications', component: NotificationsComponent, canActivate:[LoginGuard] },
   { path: '**', pathMatch: 'full', redirectTo: 'lines-dashboard' }
 ];
 

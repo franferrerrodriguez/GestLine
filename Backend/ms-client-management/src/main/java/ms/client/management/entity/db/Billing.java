@@ -14,12 +14,6 @@ public class Billing {
 	@Id
 	private Long id;
 	
-	@Column(name = "country_code")
-	private String countryCode;
-	
-	@Column(name = "control_digit")
-	private String controlDigit;
-	
 	@Column(name = "entity")
 	private String entity;
 	
@@ -46,22 +40,6 @@ public class Billing {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public String getControlDigit() {
-		return controlDigit;
-	}
-
-	public void setControlDigit(String controlDigit) {
-		this.controlDigit = controlDigit;
 	}
 
 	public String getEntity() {
