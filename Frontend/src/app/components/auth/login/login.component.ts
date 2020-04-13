@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import { AuthService } from '../../../services/auth/auth.service';
 import { User } from '../../../models/user.class';
+import { Notification } from '../../../models/Notification.class';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,9 @@ import { User } from '../../../models/user.class';
 })
 export class LoginComponent implements OnInit {
 
-  public loading:boolean;
-  public error:string;
-  public loginType:number;
+  public loading: boolean;
+  public notification: Notification;
+  public loginType :number;
 
   public user: User = {
     email: '',
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
           if(data.error != null) {
             this.user.password = '';
             this.loading = false;
+            this.notification = new Notification(Notification.Type().Error, "Ha ocurrido un error inesperado.");
           } else {
             this.authService.setUser(data.result);
             this.authService.setToken(data.result.id);
@@ -52,13 +54,14 @@ export class LoginComponent implements OnInit {
         },
         error => {
           console.log(error);
+          this.notification = new Notification(Notification.Type().Error, "La combinación de usuario y contraseña no son válidos.");
           this.user.password = '';
           this.loading = false;
         }
       );
-    }else{
+    } else {
       this.user.password = '';
-      console.log('Form not valid.');
+      this.notification = new Notification(Notification.Type().Error, "El formulario no es válido. Faltan campos obligatorios.");
       this.loading = false;
     }
   }

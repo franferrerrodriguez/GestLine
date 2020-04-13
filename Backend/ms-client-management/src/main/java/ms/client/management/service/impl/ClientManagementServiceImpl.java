@@ -24,23 +24,26 @@ public class ClientManagementServiceImpl implements IClientManagementService {
 	IBillingRepository billingRepository;
 
 	@Override
-	public List<Client> clientAll() throws InterruptedException {
+	public List<Client> clientAll() {
 		return clientRepository.findAll();
 	}
 	
 	@Override
-	public Client clientByDocument(String document) throws InterruptedException {
+	public Client clientByDocument(String document) {
 		return clientRepository.findByDocument(document);
 	}
 	
 	@Override
-	public Boolean updateClient(Client client) throws InterruptedException {
-		clientRepository.save(client);
-		addressRepository.save(client.getAddress());
-		billingRepository.save(client.getBilling());
-		addressRepository.save(client.getBilling().getAddress());
-		
-		return true;
+	public Boolean updateClient(Client client) {
+		try {
+			clientRepository.save(client);
+			addressRepository.save(client.getAddress());
+			billingRepository.save(client.getBilling());
+			addressRepository.save(client.getBilling().getAddress());
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
 	}
 
 }

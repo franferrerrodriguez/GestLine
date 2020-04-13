@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { InvoiceService } from 'src/app/services/invoice.service';
 import { Utils } from 'src/app/Utils/Utils.class';
+import { Notification } from '../../../models/Notification.class';
 
 @Component({
   selector: 'app-chart-invoices',
@@ -13,6 +14,7 @@ export class ChartInvoicesComponent implements OnInit {
 
   public title:string;
   public loading:boolean;
+  public notification: Notification;
   public invoiceChartData:any;
   public document:string;
   public numInvoices:number;
@@ -46,6 +48,7 @@ export class ChartInvoicesComponent implements OnInit {
       error => {
         console.log(error);
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Error, "", false);
       }
     );
   }

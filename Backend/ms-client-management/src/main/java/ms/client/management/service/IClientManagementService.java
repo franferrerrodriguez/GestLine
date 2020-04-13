@@ -6,10 +6,10 @@ import ms.client.management.entity.db.Client;
 
 public interface IClientManagementService {
 
-	List<Client> clientAll() throws InterruptedException;
+	List<Client> clientAll();
 	
-	Client clientByDocument(String document) throws InterruptedException;
+	Client clientByDocument(String document);
 	
-	Boolean updateClient(Client client) throws InterruptedException;
+	Boolean updateClient(Client client);
 
 }

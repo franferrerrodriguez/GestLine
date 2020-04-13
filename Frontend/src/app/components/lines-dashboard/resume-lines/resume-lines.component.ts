@@ -3,6 +3,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { Utils } from '../../../Utils/Utils.class';
 import { ContractService } from '../../../services/contract.service';
 import { SearchService } from '../../../services/search.service';
+import { Notification } from '../../../models/Notification.class';
 
 @Component({
   selector: 'app-resume-lines',
@@ -12,6 +13,7 @@ import { SearchService } from '../../../services/search.service';
 export class ResumeLinesComponent implements OnInit {
 
   public title:string;
+  public notification: Notification;
   public loading:boolean;
   public contractData:any;
   public document:string;
@@ -41,6 +43,7 @@ export class ResumeLinesComponent implements OnInit {
       error => {
         console.log(error);
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Error);
       }
     );
   }

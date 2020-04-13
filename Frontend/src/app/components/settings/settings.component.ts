@@ -1,8 +1,12 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import * as CryptoJS from 'crypto-js';
 import { Client } from '../../models/Client.class';
 import { AuthService } from '../../services/auth/auth.service';
 import { ClientmanagementService } from '../../services/clientmanagement.service';
+import { DataUtils } from '../../Utils/DataUtils.class';
+import { User } from 'src/app/models/user.class';
+import { Notification } from '../../models/Notification.class';
 
 @Component({
   selector: 'app-settings',
@@ -12,9 +16,13 @@ import { ClientmanagementService } from '../../services/clientmanagement.service
 export class SettingsComponent implements OnInit {
 
   public loading:boolean;
+  public notification: Notification;
+  public clientData:any;
+  public dataUtils:DataUtils;
   public documentTypes:string[];
   public addressTypes:string[];
   public countries:string[];
+  public user:User;
 
   public client: Client = {
     document: '',
@@ -26,6 +34,8 @@ export class SettingsComponent implements OnInit {
     birthDate: '',
     email: '',
     onlineInvoice: false,
+    password: '',
+    repeatPassword: '',
     address: { 
       type: '',
       direction: '',
@@ -64,249 +74,14 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = false;
+    this.dataUtils = new DataUtils();
+    this.documentTypes = this.dataUtils.getDocumentType();
+    this.addressTypes = this.dataUtils.getAddressType();
+    this.countries = this.dataUtils.getCountries();
 
-    this.documentTypes = ['NIF', 'NIE', 'CIF', 'PASAPORTE'];
-
-    this.addressTypes = [
-      'Calle',
-      'Avenida',
-      'Callejón',
-      'Camino',
-      'Carretera',
-      'Carril',
-      'Parque',
-      'Pasaje',
-      'Paseo',
-      'Plaza',
-      'Puente',
-      'Ronda',
-      'Sendero',
-      'Travesía',
-      'Túnel',
-      'Urbanización'
-    ]
-
-    this.countries = [
-      'Afganistán',
-      'Albania',
-      'Alemania',
-      'Andorra',
-      'Angola',
-      'Antigua y Barbuda',
-      'Arabia Saudita',
-      'Argelia',
-      'Argentina',
-      'Armenia',
-      'Australia',
-      'Austria',
-      'Azerbaiyán',
-      'Bahamas',
-      'Bangladés',
-      'Barbados',
-      'Baréin',
-      'Bélgica',
-      'Belice',
-      'Benín',
-      'Bielorrusia',
-      'Birmania',
-      'Bolivia',
-      'Bosnia y Herzegovina',
-      'Botsuana',
-      'Brasil',
-      'Brunéi',
-      'Bulgaria',
-      'Burkina Faso',
-      'Burundi',
-      'Bután',
-      'Cabo Verde',
-      'Camboya',
-      'Camerún',
-      'Canadá',
-      'Catar',
-      'Chad',
-      'Chile',
-      'China',
-      'Chipre',
-      'Ciudad del Vaticano',
-      'Colombia',
-      'Comoras',
-      'Corea del Norte',
-      'Corea del Sur',
-      'Costa de Marfil',
-      'Costa Rica',
-      'Croacia',
-      'Cuba',
-      'Dinamarca',
-      'Dominica',
-      'Ecuador',
-      'Egipto',
-      'El Salvador',
-      'Emiratos Árabes Unidos',
-      'Eritrea',
-      'Eslovaquia',
-      'Eslovenia',
-      'España',
-      'Estados Unidos',
-      'Estonia',
-      'Etiopía',
-      'Filipinas',
-      'Finlandia',
-      'Fiyi',
-      'Francia',
-      'Gabón',
-      'Gambia',
-      'Georgia',
-      'Ghana',
-      'Granada',
-      'Grecia',
-      'Guatemala',
-      'Guyana',
-      'Guinea',
-      'Guinea-Bisáu',
-      'Guinea Ecuatorial',
-      'Haití',
-      'Honduras',
-      'Hungría',
-      'India',
-      'Indonesia',
-      'Irak',
-      'Irán',
-      'Irlanda',
-      'Islandia',
-      'Islas Marshall',
-      'Islas Salomón',
-      'Israel',
-      'Italia',
-      'Jamaica',
-      'Japón',
-      'Jordania',
-      'Kazajistán',
-      'Kenia',
-      'Kirguistán',
-      'Kiribati',
-      'Kuwait',
-      'Laos',
-      'Lesoto',
-      'Letonia',
-      'Líbano',
-      'Liberia',
-      'Libia',
-      'Liechtenstein',
-      'Lituania',
-      'Luxemburgo',
-      'Macedonia del Norte',
-      'Madagascar',
-      'Malasia',
-      'Malaui',
-      'Maldivas',
-      'Malí',
-      'Malta',
-      'Marruecos',
-      'Mauricio',
-      'Mauritania',
-      'México',
-      'Micronesia',
-      'Moldavia',
-      'Mónaco',
-      'Mongolia',
-      'Montenegro',
-      'Mozambique',
-      'Namibia',
-      'Nauru',
-      'Nepal',
-      'Nicaragua',
-      'Níger',
-      'Nigeria',
-      'Noruega',
-      'Nueva Zelanda',
-      'Omán',
-      'Países Bajos',
-      'Pakistán',
-      'Palaos',
-      'Panamá',
-      'Papúa Nueva Guinea',
-      'Paraguay',
-      'Perú',
-      'Polonia',
-      'Portugal',
-      'Reino Unido de Gran Bretaña e Irlanda del Norte',
-      'República Centroafricana',
-      'República Checa',
-      'República del Congo',
-      'República Democrática del Congo',
-      'República Dominicana',
-      'República Sudafricana',
-      'Ruanda',
-      'Rumanía',
-      'Rusia',
-      'Samoa',
-      'San Cristóbal y Nieves',
-      'San Marino',
-      'San Vicente y las Granadinas',
-      'Santa Lucía',
-      'Santo Tomé y Príncipe',
-      'Senegal',
-      'Serbia',
-      'Seychelles',
-      'Sierra Leona',
-      'Singapur',
-      'Siria',
-      'Somalia',
-      'Sri Lanka',
-      'Suazilandia',
-      'Sudán',
-      'Sudán del Sur',
-      'Suecia',
-      'Suiza',
-      'Surinam',
-      'Tailandia',
-      'Tanzania',
-      'Tayikistán',
-      'Timor Oriental',
-      'Togo',
-      'Tonga',
-      'Trinidad y Tobago',
-      'Túnez',
-      'Turkmenistán',
-      'Turquía',
-      'Tuvalu',
-      'Ucrania',
-      'Uganda',
-      'Uruguay',
-      'Uzbekistán',
-      'Vanuatu',
-      'Venezuela',
-      'Vietnam',
-      'Yemen',
-      'Yibuti',
-      'Zambia',
-      'Zimbabue'
-    ];
+    this.user = this.authService.getCurrentUser();
 
     this.getClientManagementData();
-  }
-
-  save(form: NgForm) {
-    this.loading = true;
-
-    if (form.valid) {
-      console.log(this.client);
-      this.loading = false;
-      return this.clientmanagementService
-        .updateClient(this.client)
-        .subscribe(
-          data => {
-            console.log(data);
-          },
-          error => {
-            console.log(error);
-            this.loading = false;
-          }
-        );
-    } else{
-      console.log('Form not valid.');
-      this.loading = false;
-    }
   }
 
   getClientManagementData() {
@@ -315,12 +90,69 @@ export class SettingsComponent implements OnInit {
       .getClientByDocument(this.authService.getCurrentUser().document)
       .subscribe(
         data => {
+          this.clientData = data.result;
           this.client = data.result;
         },
         error => {
           console.log(error);
+          this.notification = new Notification(Notification.Type().Error);
         }
       );
+    }
+  }
+
+  save(form: NgForm) {
+    this.loading = true;
+
+    if (form.valid) {
+      this.loading = false;
+
+      let changePassword;
+      if(form.controls.password.value || form.controls.repeatPassword.value)
+        if(form.controls.password.value == form.controls.repeatPassword.value)
+          changePassword = true;
+        else
+          changePassword = false;
+  
+      if(changePassword == false){
+        this.notification = new Notification(Notification.Type().Error, "Las contraseñas no coinciden.");
+        this.client.password = '';
+        this.client.repeatPassword = '';
+      } else {
+        if(changePassword) {
+          this.user.password = CryptoJS.MD5(form.controls.password.value).toString();
+          console.log(this.user);
+          return this.authService
+          .updateUser(this.user)
+          .subscribe(
+            data => {
+              console.log(data);
+            },
+            error => {
+              console.log(error);
+              this.notification = new Notification(Notification.Type().Error);
+              this.loading = false;
+            }
+          );
+        }
+        return this.clientmanagementService
+        .updateClient(this.client)
+        .subscribe(
+          data => {
+            console.log(data);
+            this.notification = new Notification(Notification.Type().Success);
+          },
+          error => {
+            console.log(error);
+            this.loading = false;
+            this.notification = new Notification(Notification.Type().Error);
+          }
+        );
+      }
+    } else {
+      console.log('Form not valid.');
+      this.loading = false;
+      this.notification = new Notification(Notification.Type().Error);
     }
   }
 

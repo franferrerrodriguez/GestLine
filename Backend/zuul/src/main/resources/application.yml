@@ -10,9 +10,9 @@ spring:
 server:
      port: 9061
 
-#cloud:
-      #config:
-           #uri: http://localhost:8888
+# Cloud:
+      # Config:
+           # Uri: http://localhost:8888
 
 # Eureka Config
 eureka:
@@ -32,15 +32,36 @@ zuul:
 #ribbon es el corte de llamadas (balanceadas) a otros micros 
 ribbon:
      ConnectTimeout: 2000
-     ReadTimeout: 4000 # tiempo del reintento
+     ReadTimeout: 0 # tiempo del reintento
      MaxAutoRetries: 0 # en realidad se reintenta 6
+     MaxAutoRetriesNextServer: 0
+     
+ms-authentication:
+  ribbon:
+     ConnectTimeout: 2000
+     ReadTimeout: 2000
+     MaxAutoRetries: 0
      MaxAutoRetriesNextServer: 0
      
 ms-client-management:
   ribbon:
      ConnectTimeout: 2000
      ReadTimeout: 2000
-     MaxAutoRetries: 5
+     MaxAutoRetries: 0
+     MaxAutoRetriesNextServer: 0
+     
+ms-contract:
+  ribbon:
+     ConnectTimeout: 2000
+     ReadTimeout: 2000
+     MaxAutoRetries: 0
+     MaxAutoRetriesNextServer: 0
+     
+ms-invoice:
+  ribbon:
+     ConnectTimeout: 2000
+     ReadTimeout: 2000
+     MaxAutoRetries: 0
      MaxAutoRetriesNextServer: 0
 
 # hystrix es el corte de este micro, tiene que tener misma o más tiempo que ribbon

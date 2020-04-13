@@ -2,7 +2,7 @@
 
 <app-onesection *ngIf="!loading">
     <div content>
-        <form [formGroup]="form" (ngSubmit)="submit()">
+        <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="contractData">
             <div  *ngFor="let contract of contractData;let index = index;">
                 <div *ngIf="contract.contractServices && contract.contractServices.length > 0">
                     <div class="header-component" data-toggle="collapse" [attr.href]="'#collapseLines' + index" aria-expanded="true" aria-controls="collapseExample">
@@ -39,3 +39,5 @@
         </form>
     </div>
 </app-onesection>
+
+<app-notification [notification]="notification"></app-notification>

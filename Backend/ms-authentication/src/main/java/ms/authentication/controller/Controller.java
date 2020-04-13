@@ -113,5 +113,34 @@ public class Controller {
 		return new ResponseEntity<>(response, httpStatus);
 		
 	}
+	
+	@RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+	@HystrixCommand()
+	public ResponseEntity<Response<Boolean>> updateUser(@RequestBody User user) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'updateUser' | Port: '%s'", port));
+
+		Response<Boolean> response;
+		HttpStatus httpStatus;
+		try {
+			Boolean result = authenticationService.updateUser(user);
+			
+			if(result != null && result) {
+				response = new Response<>(result);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
 
 }

@@ -16,22 +16,32 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 	IAuthenticationRepository authenticationRepository;
 	
 	@Override
-	public List<User> userAll() throws InterruptedException {
+	public List<User> userAll() {
 		return authenticationRepository.findAll();
 	}
 	
 	@Override
-	public User userByDocument(String document) throws InterruptedException {
+	public User userByDocument(String document) {
 		return authenticationRepository.findByDocument(document);
 	}
 	
 	@Override
-	public User checkLogin(User user) throws InterruptedException {
+	public User checkLogin(User user) {
 		for(User u : authenticationRepository.findAll())
 			if((u.getEmail().equals(user.getEmail()) || u.getDocument().equals(user.getDocument())) && 
 					u.getPassword().equals(user.getPassword()))
 				return u;
 		return null;
+	}
+
+	@Override
+	public Boolean updateUser(User user) {
+		try {
+			authenticationRepository.save(user);
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
 	}
 
 }

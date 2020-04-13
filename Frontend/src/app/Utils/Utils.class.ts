@@ -1,4 +1,4 @@
-export class  Utils {
+export class Utils {
 
    public getMonthByNumber(date:Date){
       let month = date.getMonth() + 1;
@@ -51,8 +51,6 @@ export class  Utils {
                   percentage = +((partialBytes * 100) / totalBytes).toFixed(0);
                else
                   percentage = +((this.byteToGb(partialBytes) * 100) / this.byteToGb(totalBytes)).toFixed(0);
-               //console.log(totalBytes + " - " + partialBytes);
-               //console.log(percentage);
                if(round)
                   percentage = Math.round(percentage / 10) * 10;
             }else if(totalBytes == -1) {

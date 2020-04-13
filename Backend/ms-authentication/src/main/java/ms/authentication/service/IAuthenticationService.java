@@ -6,10 +6,12 @@ import ms.authentication.entity.db.User;
 
 public interface IAuthenticationService {
 
-	List<User> userAll() throws InterruptedException;
+	List<User> userAll();
 	
-	User userByDocument(String document) throws InterruptedException;
+	User userByDocument(String document);
 
-	User checkLogin(User user) throws InterruptedException;
+	User checkLogin(User user);
 
+	Boolean updateUser(User user);
+	
 }

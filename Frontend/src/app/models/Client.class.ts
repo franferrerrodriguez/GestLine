@@ -1,4 +1,4 @@
-export class  Client {
+export class Client {
     document: string;
     documentType: string;
     clientType: string;
@@ -10,6 +10,8 @@ export class  Client {
     onlineInvoice: boolean;
     address: Address;
     billing: Billing;
+    password:string;
+    repeatPassword:string;
 }
 
 class Address {

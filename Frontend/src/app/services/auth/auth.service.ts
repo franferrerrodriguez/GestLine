@@ -33,6 +33,17 @@ export class AuthService {
     .pipe(map(data => data));
   }
 
+  updateUser(user: User): Observable<any> {
+    const url = API.msauthenticationv1 + "updateUser";
+    return this.http
+      .post<User>(
+        url,
+        user,
+        { headers: this.headers }
+      )
+    .pipe(map(data => data));
+  }
+
   setUser(user: User): void {
     let user_string = JSON.stringify(user);
     localStorage.setItem("currentUser", user_string);

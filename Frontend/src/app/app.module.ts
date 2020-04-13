@@ -23,6 +23,7 @@ import { ThreesectionComponent } from './components/shared/sections/threesection
 import { LineservicesComponent } from './components/lineservices/lineservices.component';
 import { ContractTypePipe } from './pipes/contract-type.pipe';
 import { ResumeLinesComponent } from './components/lines-dashboard/resume-lines/resume-lines.component';
+import { NotificationComponent } from './components/shared/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ResumeLinesComponent } from './components/lines-dashboard/resume-lines/
     TwosectionComponent,
     ThreesectionComponent,
     LineservicesComponent,
-    ContractTypePipe
+    ContractTypePipe,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

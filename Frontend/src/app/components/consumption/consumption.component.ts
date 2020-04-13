@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { Utils } from '../../Utils/Utils.class';
 import { ContractService } from '../../services/contract.service';
+import { Notification } from '../../models/Notification.class';
 
 @Component({
   selector: 'app-consumption',
@@ -12,6 +13,7 @@ import { ContractService } from '../../services/contract.service';
 export class ConsumptionComponent implements OnInit {
 
   public loading:boolean;
+  public notification: Notification;
   public contractData:any;
   public document:string;
   public utils:Utils;
@@ -44,6 +46,7 @@ export class ConsumptionComponent implements OnInit {
       error => {
         console.log(error);
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Error);
       }
     );
   }

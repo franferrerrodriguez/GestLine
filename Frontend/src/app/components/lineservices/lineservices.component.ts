@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
-import { Utils } from '../../Utils/Utils.class';
 import { ContractService } from '../../services/contract.service';
+import { Notification } from '../../models/Notification.class';
 
 @Component({
   selector: 'app-lineservices',
@@ -14,6 +14,7 @@ export class LineservicesComponent implements OnInit {
 
   public title:string;
   public loading:boolean;
+  public notification: Notification;
   public contractData:any;
   public document:string;
   public contracts:string[];
@@ -50,8 +51,6 @@ export class LineservicesComponent implements OnInit {
     this.contractsModify = this.form.value.name;
     if(this.contractsModify.length > 0)
       this.updateContractsService();
-    else
-      console.log("ko");
   }
 
   getContractByDocument(document:string) {
@@ -70,8 +69,8 @@ export class LineservicesComponent implements OnInit {
         this.contractData = this.contractService.getContractByPhone(data.result, phone);
       },
       error => {
-        console.log(error);
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Error);
       }
     );
   }
@@ -86,10 +85,11 @@ export class LineservicesComponent implements OnInit {
         this.getContractByDocument(this.document);
         this.enabledBtnSave = true;
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Success);
       },
       error => {
-        console.log(error);
         this.loading = false;
+        this.notification = new Notification(Notification.Type().Error);
       }
     );
   }

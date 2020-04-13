@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth/auth.service';
 import { InvoiceService } from 'src/app/services/invoice.service';
 import { Utils } from '../../../Utils/Utils.class';
+import { Notification } from '../../../models/Notification.class';
 
 @Component({
   selector: 'app-resume-invoice',
@@ -13,11 +14,11 @@ export class ResumeInvoiceComponent implements OnInit {
 
   public title:string;
   public loading:boolean;
+  public notification: Notification;
   public invoiceResumeData:any;
   public document:string;
   public month:string;
   public numInvoices:number;
-  public error:any;
   public url:string;
   @Input() chartSelected: any;
 
@@ -59,11 +60,11 @@ export class ResumeInvoiceComponent implements OnInit {
         error => {
           console.log(error);
           this.loading = false;
-          this.error = "";
+          this.notification = new Notification(Notification.Type().Error, "", false);
         }
       );
     }else{
-      this.error = "";
+      this.notification = new Notification(Notification.Type().Error, "Hay facturas disponibles.", false);
     }
   }
 

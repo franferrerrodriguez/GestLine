@@ -12,4 +12,6 @@ public interface IAuthenticationRepository extends Repository<User, String> {
 	
 	public User findByDocument(String document);
 	
+	public void save(User user);
+	
 }
