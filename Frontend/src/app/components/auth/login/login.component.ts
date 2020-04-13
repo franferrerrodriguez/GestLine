@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../models/user.class';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
 import { AuthService } from '../../../services/auth/auth.service';
+import { User } from '../../../models/user.class';
 
 @Component({
   selector: 'app-login',

@@ -26,18 +26,18 @@ export class ContractService {
     .pipe(map(data => data));
   }
 
-  modifyContracts(contracts: string[]): Observable<any> {
-    const url = API.mscontractv1 + "modifyContracts";
+  updateContractsService(contractsService: string[]): Observable<any> {
+    const url = API.mscontractv1 + "updateContractsService";
     return this.http
       .post<String>(
         url,
-        contracts,
+        contractsService,
         { headers: this.headers }
       )
     .pipe(map(data => data));
   }
 
-  getContractsByPhone(contract:any, phone:string = null){
+  getContractByPhone(contract:any, phone:string = null){
     let contractsReturn = new Array();
     contract.contractLines.forEach(function (param) {
       if(phone && param.phone == phone)

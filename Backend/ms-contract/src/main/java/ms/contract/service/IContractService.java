@@ -10,6 +10,6 @@ public interface IContractService {
 
 	List<Contract> contractAll() throws InterruptedException;
 
-	Boolean modifyContractsService(List<String> contractsService) throws InterruptedException;
+	Boolean updateContractsService(List<String> contractsService) throws InterruptedException;
 	
 }

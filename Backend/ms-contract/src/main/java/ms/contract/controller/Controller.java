@@ -86,19 +86,19 @@ public class Controller {
 		
 	}
 	
-	@RequestMapping(value = "/modifyContracts", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateContractsService", method = RequestMethod.POST)
 	@HystrixCommand()
-	public ResponseEntity<Response<Boolean>> modifyContractService(@RequestBody List<String> contractsService) throws InterruptedException {
+	public ResponseEntity<Response<Boolean>> updateContractsService(@RequestBody List<String> contractsService) throws InterruptedException {
 
 		String port = environment.getProperty("local.server.port");
 
-		LOGGER.info(String.format("Called endpoint: 'modifyContractService' | Port: '%s'", port));
+		LOGGER.info(String.format("Called endpoint: 'updateContract' | Port: '%s'", port));
 		
 		Response<Boolean> response;
 		HttpStatus httpStatus;
 		if(contractsService.size() > 0) {
 			try {
-				Boolean result = contractService.modifyContractsService(contractsService);
+				Boolean result = contractService.updateContractsService(contractsService);
 				
 				if(result != null && result) {
 					response = new Response<>(result);

@@ -143,8 +143,8 @@ public class Client {
 	public Integer getLimitDue() {
 		return limitDue;
 	}
-
-	public void setLimit(Integer limitDue) {
+	
+	public void setLimitDue(Integer limitDue) {
 		this.limitDue = limitDue;
 	}
 

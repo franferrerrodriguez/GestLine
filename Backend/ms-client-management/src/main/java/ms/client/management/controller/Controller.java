@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,6 +76,35 @@ public class Controller {
 			} else {
 				response = new Response<>(new ResponseError("Error"));
 				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
+	@RequestMapping(value = "/updateClient", method = RequestMethod.POST)
+	@HystrixCommand()
+	public ResponseEntity<Response<Boolean>> updateClient(@RequestBody Client client) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'updateClient' | Port: '%s'", port));
+
+		Response<Boolean> response;
+		HttpStatus httpStatus;
+		try {
+			Boolean result = clientManagementService.updateClient(client);
+			
+			if(result != null && result) {
+				response = new Response<>(result);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 			}
 		} catch (Exception e) {
 			response = new Response<>(new ResponseError("Error"));

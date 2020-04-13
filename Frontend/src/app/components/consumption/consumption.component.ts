@@ -39,7 +39,7 @@ export class ConsumptionComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
           phone = params['phone'];
         });
-        this.contractData = this.contractService.getContractsByPhone(data.result, phone);
+        this.contractData = this.contractService.getContractByPhone(data.result, phone);
       },
       error => {
         console.log(error);

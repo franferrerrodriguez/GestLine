@@ -49,7 +49,7 @@ export class LineservicesComponent implements OnInit {
   submit() {
     this.contractsModify = this.form.value.name;
     if(this.contractsModify.length > 0)
-      this.modifyContracts();
+      this.updateContractsService();
     else
       console.log("ko");
   }
@@ -67,7 +67,7 @@ export class LineservicesComponent implements OnInit {
         this.activatedRoute.params.subscribe(params => {
           phone = params['phone'];
         });
-        this.contractData = this.contractService.getContractsByPhone(data.result, phone);
+        this.contractData = this.contractService.getContractByPhone(data.result, phone);
       },
       error => {
         console.log(error);
@@ -76,11 +76,11 @@ export class LineservicesComponent implements OnInit {
     );
   }
 
-  modifyContracts() {
+  updateContractsService() {
     this.loading = true;
 
     return this.contractService
-    .modifyContracts(this.contractsModify)
+    .updateContractsService(this.contractsModify)
     .subscribe(
       data => {
         this.getContractByDocument(this.document);
@@ -92,7 +92,6 @@ export class LineservicesComponent implements OnInit {
         this.loading = false;
       }
     );
-
   }
 
 }

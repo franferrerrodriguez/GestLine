@@ -20,7 +20,7 @@ export class SubnavbarComponent implements OnInit {
   getClientManagementData() {
     if(this.authService.getCurrentUser()){
       return this.clientmanagementService
-      .getData(this.authService.getCurrentUser().document)
+      .getClientByDocument(this.authService.getCurrentUser().document)
       .subscribe(
         data => {
           this.clientData = data.result;

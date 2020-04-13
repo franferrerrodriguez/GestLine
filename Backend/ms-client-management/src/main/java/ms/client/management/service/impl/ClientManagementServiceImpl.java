@@ -6,23 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ms.client.management.entity.db.Client;
-import ms.client.management.repository.IClientManagementRepository;
+import ms.client.management.repository.IAddressRepository;
+import ms.client.management.repository.IBillingRepository;
+import ms.client.management.repository.IClientRepository;
 import ms.client.management.service.IClientManagementService;
 
 @Service
 public class ClientManagementServiceImpl implements IClientManagementService {
 
 	@Autowired
-	IClientManagementRepository clientManagementRepository;
+	IClientRepository clientRepository;
+	
+	@Autowired
+	IAddressRepository addressRepository;
+	
+	@Autowired
+	IBillingRepository billingRepository;
 
 	@Override
 	public List<Client> clientAll() throws InterruptedException {
-		return clientManagementRepository.findAll();
+		return clientRepository.findAll();
 	}
 	
 	@Override
 	public Client clientByDocument(String document) throws InterruptedException {
-		return clientManagementRepository.findByDocument(document);
+		return clientRepository.findByDocument(document);
+	}
+	
+	@Override
+	public Boolean updateClient(Client client) throws InterruptedException {
+		clientRepository.save(client);
+		addressRepository.save(client.getAddress());
+		billingRepository.save(client.getBilling());
+		addressRepository.save(client.getBilling().getAddress());
+		
+		return true;
 	}
 
 }

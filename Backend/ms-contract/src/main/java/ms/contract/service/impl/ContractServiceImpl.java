@@ -31,7 +31,7 @@ public class ContractServiceImpl implements IContractService {
 	}
 
 	@Override
-	public Boolean modifyContractsService(List<String> contractsService) throws InterruptedException {
+	public Boolean updateContractsService(List<String> contractsService) throws InterruptedException {
 
 		try {
 			for(String service : contractsService) {
