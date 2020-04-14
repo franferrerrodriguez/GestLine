@@ -1,7 +1,5 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from './services/auth/auth.service';
-import { User } from './models/user.class';
-import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +9,21 @@ import { IfStmt } from '@angular/compiler';
 export class AppComponent implements OnInit {
 
   public title = 'GestLine';
-
+  
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {
     this.validateToken();
+    this.authService.checkSessionTime();
   }
 
-  changeRoute(){
-    console.log("Change route!");
+  @HostListener('document:click',['$event'])
+  documentClick(event: MouseEvent) {
+    this.authService.refreshSessionTime();
+  }
+
+  changeRoute() {
+    this.authService.refreshSessionTime();
   }
 
   validateToken():any {

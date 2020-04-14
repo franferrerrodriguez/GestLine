@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  zuul: 'http://localhost:9061'
+  zuul: 'http://localhost:9061',
+  sessionTime: 5
 };
 
 export const environmentAPI = {

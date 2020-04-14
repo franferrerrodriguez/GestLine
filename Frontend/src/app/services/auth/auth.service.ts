@@ -4,7 +4,7 @@ import { Observable } from "rxjs/internal/Observable";
 import { map } from "rxjs/operators";
 import { isNullOrUndefined } from "util";
 import { User } from '../../models/user.class';
-import { API } from '../../../environments/environment';
+import { environment, API } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +53,28 @@ export class AuthService {
     return localStorage.getItem("accessToken");
   }
 
+  setSessionTime(): void {
+    localStorage.setItem("sessionTime", new Date()
+      .setMinutes(new Date()
+      .getMinutes() + environment.sessionTime)
+      .toString());
+  }
+
+  getSessionTime():number {
+    return +localStorage.getItem("sessionTime");
+  }
+
+  refreshSessionTime(): void {
+    this.checkSessionTime();
+    if(this.getSessionTime())
+      this.setSessionTime();
+  }
+
+  checkSessionTime() {
+    if(this.getSessionTime() && new Date().getTime() > this.getSessionTime())
+      this.logoutUser();
+  }
+
   getTokenServer(document:string): Observable<any> {
     const url = API.msauthenticationv1 + "getToken/" + document;
     return this.http
@@ -77,6 +99,7 @@ export class AuthService {
     localStorage.getItem("accessToken");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
+    localStorage.removeItem("sessionTime");
     window.location.reload();
   }
 

@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
           } else {
             this.authService.setUser(new User(data.result.document, data.result.email, data.result.password));
             this.authService.setToken(data.result.token);
+            this.authService.setSessionTime();
             this.router.navigate(['lines-dashboard']);
             location.reload();
           }
