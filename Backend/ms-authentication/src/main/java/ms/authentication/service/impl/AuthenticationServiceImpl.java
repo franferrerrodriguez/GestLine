@@ -47,5 +47,15 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 			return false;
 		}
 	}
+	
+	@Override
+	public String getToken(String document) {
+		try {
+			return authenticationRepository.findByDocument(document).getToken();
+		} catch(Exception e) {
+			return null;
+		}
+
+	}
 
 }

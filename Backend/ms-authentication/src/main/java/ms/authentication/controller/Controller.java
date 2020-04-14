@@ -142,5 +142,33 @@ public class Controller {
 		return new ResponseEntity<>(response, httpStatus);
 		
 	}
+	
+	@RequestMapping(value = "/getToken/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<String>> getToken(@PathVariable String document) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'getToken' | Port: '%s'", port));
+
+		Response<String> response;
+		HttpStatus httpStatus;
+		try {
+			String token = authenticationService.getToken(document);
+			if(token != null) {
+				response = new Response<>(token);
+				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
 
 }

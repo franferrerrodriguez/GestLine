@@ -49,8 +49,18 @@ export class AuthService {
     localStorage.setItem("accessToken", token);
   }
 
-  getToken() {
+  getToken():string {
     return localStorage.getItem("accessToken");
+  }
+
+  getTokenServer(document:string): Observable<any> {
+    const url = API.msauthenticationv1 + "getToken/" + document;
+    return this.http
+      .get<string>(
+        url,
+        { headers: this.headers }
+      )
+    .pipe(map(data => data));
   }
 
   getCurrentUser(): User {

@@ -14,4 +14,6 @@ public interface IAuthenticationService {
 
 	Boolean updateUser(User user);
 	
+	String getToken(String document);
+	
 }
