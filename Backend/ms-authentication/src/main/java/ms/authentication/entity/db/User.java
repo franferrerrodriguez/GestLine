@@ -3,6 +3,7 @@ package ms.authentication.entity.db;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +19,10 @@ public class User {
 
 	@Column(name = "password")
 	private String password;
-
-	@Column(name = "phone_number")
-	private String phoneNumber;
+	
+	@Lob
+	@Column(name = "token")
+	private String token;
 
 	public String getEmail() {
 		return email;
@@ -46,12 +48,12 @@ public class User {
 		this.document = document;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getToken() {
+		return token;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }

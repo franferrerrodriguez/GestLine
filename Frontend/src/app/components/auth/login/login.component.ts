@@ -20,8 +20,7 @@ export class LoginComponent implements OnInit {
   public user: User = {
     email: '',
     password: '',
-    document: '',
-    phoneNumber: ''
+    document: ''
   }
 
   constructor(private router: Router, private authService: AuthService) { 
@@ -41,28 +40,32 @@ export class LoginComponent implements OnInit {
       .loginUser(this.user)
       .subscribe(
         data => {
-          if(data.error != null) {
+          if(data.error) {
+            this.user.document = '';
+            this.user.email = '';
             this.user.password = '';
             this.loading = false;
-            this.notification = new Notification(Notification.Type().Error, "Ha ocurrido un error inesperado.");
+            this.notification = new Notification(Notification.Type().Error, "La combinación de usuario y contraseña no son válidos.");
           } else {
-            this.authService.setUser(data.result);
-            this.authService.setToken(data.result.id);
+            this.authService.setUser(new User(data.result.document, data.result.email, data.result.password));
+            this.authService.setToken(data.result.token);
             this.router.navigate(['lines-dashboard']);
             location.reload();
           }
         },
         error => {
           console.log(error);
-          this.notification = new Notification(Notification.Type().Error, "La combinación de usuario y contraseña no son válidos.");
+          this.user.document = '';
+          this.user.email = '';
           this.user.password = '';
           this.loading = false;
+          this.notification = new Notification(Notification.Type().Error);
         }
       );
     } else {
       this.user.password = '';
-      this.notification = new Notification(Notification.Type().Error, "El formulario no es válido. Faltan campos obligatorios.");
       this.loading = false;
+      this.notification = new Notification(Notification.Type().Error, "El formulario no es válido. Faltan campos obligatorios.");
     }
   }
 

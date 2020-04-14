@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { ClientmanagementService } from '../../../services/clientmanagement.service';
 
@@ -18,13 +18,12 @@ export class SubnavbarComponent implements OnInit {
   }
 
   getClientManagementData() {
-    if(this.authService.getCurrentUser()){
+    if(this.authService.getCurrentUser()) {
       return this.clientmanagementService
       .getClientByDocument(this.authService.getCurrentUser().document)
       .subscribe(
         data => {
           this.clientData = data.result;
-          console.log(data.result);
         },
         error => {
           console.log(error);

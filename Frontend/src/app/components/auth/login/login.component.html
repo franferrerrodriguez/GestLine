@@ -8,8 +8,7 @@
       </h5>
       <div style="height:600px;margin:40px;">
         <div style="margin-top:60px">
-          <!-- Form -->
-          <form style="color: #757575;" name="f" #f="ngForm" (ngSubmit)="onLogin(f)">
+          <form name="form" #form="ngForm" (ngSubmit)="onLogin(form)">
 
             <!-- Documento -->
             <div class="md-form" *ngIf="loginType == 1">
@@ -30,7 +29,7 @@
               <label for="materialLoginFormPassword">Contraseña</label>
             </div>
 
-            <!-- Group of material radios -->
+            <!-- Document Type -->
             <div class="md-form">
               <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios" 
                 (click)="setLoginType(1)"
@@ -45,11 +44,9 @@
             </div>
 
             <div style="margin-top:150px;">
-              <!-- Sign in button -->
               <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Entrar</button>
             </div>
           </form>
-          <!-- Form -->
         </div>
       </div>
     </div>

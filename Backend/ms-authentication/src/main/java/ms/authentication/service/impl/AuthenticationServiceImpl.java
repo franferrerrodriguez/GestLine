@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import ms.authentication.entity.db.User;
 import ms.authentication.repository.IAuthenticationRepository;
 import ms.authentication.service.IAuthenticationService;
+import ms.authentication.util.Util;
 
 @Service
 public class AuthenticationServiceImpl implements IAuthenticationService {
@@ -29,8 +30,11 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 	public User checkLogin(User user) {
 		for(User u : authenticationRepository.findAll())
 			if((u.getEmail().equals(user.getEmail()) || u.getDocument().equals(user.getDocument())) && 
-					u.getPassword().equals(user.getPassword()))
+					u.getPassword().equals(user.getPassword())) {
+				u = Util.setUserToken(u);
+				authenticationRepository.save(u);
 				return u;
+			}
 		return null;
 	}
 

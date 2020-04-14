@@ -11,10 +11,6 @@ import { API } from '../../../environments/environment';
 })
 export class AuthService {
 
-  protocol:string = "http";
-  ip:string = "localhost";
-  port:string = "3000";
-
   constructor(private http: HttpClient) { }
 
   headers: HttpHeaders = new HttpHeaders({
@@ -68,7 +64,7 @@ export class AuthService {
   }
 
   logoutUser() {
-    let accessToken = localStorage.getItem("accessToken");
+    localStorage.getItem("accessToken");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
     window.location.reload();
