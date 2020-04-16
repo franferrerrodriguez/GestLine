@@ -43,7 +43,7 @@ export class ResumeLinesComponent implements OnInit {
       error => {
         console.log(error);
         this.loading = false;
-        this.notification = new Notification(Notification.Type().Error);
+        this.notification = new Notification(Notification.Type().Error, "", false);
       }
     );
   }

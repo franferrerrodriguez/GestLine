@@ -95,7 +95,7 @@ export class SettingsComponent implements OnInit {
         },
         error => {
           console.log(error);
-          this.notification = new Notification(Notification.Type().Error);
+          this.notification = new Notification(Notification.Type().Error, "", false);
         }
       );
     }
@@ -130,7 +130,7 @@ export class SettingsComponent implements OnInit {
             },
             error => {
               console.log(error);
-              this.notification = new Notification(Notification.Type().Error);
+              this.notification = new Notification(Notification.Type().Error, "", false);
               this.loading = false;
             }
           );
@@ -145,7 +145,7 @@ export class SettingsComponent implements OnInit {
           error => {
             console.log(error);
             this.loading = false;
-            this.notification = new Notification(Notification.Type().Error);
+            this.notification = new Notification(Notification.Type().Error, "", false);
           }
         );
       }

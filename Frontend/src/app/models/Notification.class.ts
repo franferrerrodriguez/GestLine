@@ -6,8 +6,8 @@ export class Notification {
     public close: boolean;
 
     constructor(type: Type, message: string = "", close: boolean = true) {
-        this.message = message;
         this.type = type;
+        this.message = message;
         this.close = close;
 
         switch(type) { 

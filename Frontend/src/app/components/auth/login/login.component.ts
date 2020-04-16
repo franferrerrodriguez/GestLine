@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
               error => {
                 console.log(error);
                 this.loading = false;
-                this.notification = new Notification(Notification.Type().Error);
+                this.notification = new Notification(Notification.Type().Error, "", false);
               }
             );
           } else {
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           this.user.email = '';
           this.user.password = '';
           this.loading = false;
-          this.notification = new Notification(Notification.Type().Error);
+          this.notification = new Notification(Notification.Type().Error, "", false);
         }
       );
     } else {

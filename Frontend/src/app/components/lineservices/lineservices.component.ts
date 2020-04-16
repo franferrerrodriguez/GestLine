@@ -70,7 +70,7 @@ export class LineservicesComponent implements OnInit {
       },
       error => {
         this.loading = false;
-        this.notification = new Notification(Notification.Type().Error);
+        this.notification = new Notification(Notification.Type().Error, "", false);
       }
     );
   }
@@ -89,7 +89,7 @@ export class LineservicesComponent implements OnInit {
       },
       error => {
         this.loading = false;
-        this.notification = new Notification(Notification.Type().Error);
+        this.notification = new Notification(Notification.Type().Error, "", false);
       }
     );
   }

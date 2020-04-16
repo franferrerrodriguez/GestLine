@@ -16,7 +16,7 @@ values('638538155', -1, 1000, -1, 172, -1, -1);
 insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
 values('638538155', 2147483648, 1073741824, 1073741824, 429496729.6, 429496729.6, 214748364.8);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
-values('638538155', '48640904K', 'Tarifa Ilimitada + Datos', 'POSPAID', '89 012 60 232714958936F', '1111', '11111111', '4G', 0);
+values('638538155', '48640904K', 'Tarifa Ilimitada + Datos', 'POSPAID', '89 012 60 232714958936F', '5214', '76343325', '4G', 1334);
 insert into contractservices(id, contract_line_id, name, description, active) 
 values(1, '638538155', 'Llamadas Internacionales', 'Servicio que permite realizar llamadas internacionales', 1);
 insert into contractservices(id, contract_line_id, name, description, active) 
@@ -32,7 +32,7 @@ values('639733059', 500, 0, 35, 0, 1000, 126);
 insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
 values('639733059', 3221225472, 1073741824, NULL, 462521547.6, 0, NULL);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
-values('639733059', '48640904K', 'Tarifa 500min + Datos', 'PREPAID', '89 012 60 226314933435A', '1111', '11111111', '4G', 0);
+values('639733059', '48640904K', 'Tarifa 500min + Datos', 'PREPAID', '89 012 60 226314933435A', '7322', '84327322', '4G', 442);
 insert into contractservices(id, contract_line_id, name, description, active) 
 values(5, '639733059', 'Llamadas Internacionales', 'Servicio que permite realizar llamadas internacionales', 1);
 insert into contractservices(id, contract_line_id, name, description, active) 
@@ -60,7 +60,7 @@ values('660444027', 200, 100, 22, 0, 1000, 4);
 insert into dataconsumption(id, total_bytes, total_bytes_international, total_bytes_bonus, usage_bytes, usage_bytes_international, usage_bytes_bonus) 
 values('660444027', 3221225472, 1073741824, 0, 322122547.2, 0, 0);
 insert into contractline(phone, contract_id, rate, contract_type, iccid, pin, puk, tecnology, partner_points) 
-values('660444027', '48642036A', 'Tarifa 200min + Datos', 'POSPAID', '89 012 80 352115623323E', '1111', '11111111', '4G', 0);
+values('660444027', '48642036A', 'Tarifa 200min + Datos', 'POSPAID', '89 012 80 352115623323E', '2537', '54473123', '4G', 2565);
 insert into contractservices(id, contract_line_id, name, description, active) 
 values(9, '660444027', 'Llamadas Internacionales', 'Servicio que permite realizar llamadas internacionales', 1);
 insert into contractservices(id, contract_line_id, name, description, active) 

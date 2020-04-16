@@ -20,6 +20,7 @@ export class ResumeInvoiceComponent implements OnInit {
   public month:string;
   public numInvoices:number;
   public url:string;
+  public totalAmount:number;
   @Input() chartSelected: any;
 
   constructor(private activatedRoute:ActivatedRoute, private authService: AuthService, private invoiceService: InvoiceService) { }
@@ -64,6 +65,14 @@ export class ResumeInvoiceComponent implements OnInit {
     }else{
       this.notification = new Notification(Notification.Type().Error, "Hay facturas disponibles.", false);
     }
+  }
+
+  getTotalAmount(): number {
+    let totalAmount:number = 0;
+    this.chartSelected.invoices.forEach(function (value) {
+      totalAmount += value.totalAmount;
+    }); 
+    return totalAmount;
   }
 
   downloadInvoice(){
