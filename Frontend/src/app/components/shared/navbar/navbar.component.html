@@ -28,6 +28,11 @@
               <input class="form-control mr-sm-2" type="number" placeholder="Buscar líneas" aria-label="Search" (keyup)="searchLine(search.value)" #search>
             </div>
         </form>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['documentation']">
+            <i class="fas fa-book-open" style="color: #fff"></i>
+          </a>
+        </li>
         <li class="nav-item dropdown" title="Opciones de usuario">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">

@@ -3,16 +3,26 @@ package ms.authentication.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import ms.authentication.caller.Caller;
+import ms.authentication.entity.Client;
 import ms.authentication.entity.db.User;
+import ms.authentication.feign.ClientManagementFeign;
 import ms.authentication.repository.IAuthenticationRepository;
+import ms.authentication.response.Response;
 import ms.authentication.service.IAuthenticationService;
 import ms.authentication.util.Util;
 
 @Service
 public class AuthenticationServiceImpl implements IAuthenticationService {
 
+	@Autowired
+	private ClientManagementFeign clientManagementFeign;
+	
 	@Autowired
 	IAuthenticationRepository authenticationRepository;
 	
@@ -55,7 +65,15 @@ public class AuthenticationServiceImpl implements IAuthenticationService {
 		} catch(Exception e) {
 			return null;
 		}
-
+	}
+	
+	@Override
+	public Response<Client> getClientByDocument(String document) {
+		try {
+			return clientManagementFeign.getClientByDocument(document);
+		} catch(Exception e) {
+			return null;
+		}
 	}
 
 }

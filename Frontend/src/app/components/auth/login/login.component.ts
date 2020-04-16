@@ -40,18 +40,40 @@ export class LoginComponent implements OnInit {
       .loginUser(this.user)
       .subscribe(
         data => {
-          if(data.error) {
+          if(!data.error) {
+            // Chequeamos que el cliente no esté en la blacklist
+            return this.authService
+            .getBlackList(this.user.document)
+            .subscribe(
+              blacklist => {
+                if(!blacklist.result){
+                  this.authService.setUser(new User(data.result.document, data.result.email, data.result.password));
+                  this.authService.setToken(data.result.token);
+                  this.authService.setSessionTime();
+                  this.router.navigate(['lines-dashboard']);
+                  location.reload();
+                } else {
+                  console.log(blacklist.error);
+                  this.user.document = '';
+                  this.user.email = '';
+                  this.user.password = '';
+                  this.loading = false;
+                  this.notification = new Notification(Notification.Type().Error, "El cliente se encuentra en la blacklist.");
+                }
+              },
+              error => {
+                console.log(error);
+                this.loading = false;
+                this.notification = new Notification(Notification.Type().Error);
+              }
+            );
+          } else {
+            console.log(data.error);
             this.user.document = '';
             this.user.email = '';
             this.user.password = '';
             this.loading = false;
             this.notification = new Notification(Notification.Type().Error, "La combinación de usuario y contraseña no son válidos.");
-          } else {
-            this.authService.setUser(new User(data.result.document, data.result.email, data.result.password));
-            this.authService.setToken(data.result.token);
-            this.authService.setSessionTime();
-            this.router.navigate(['lines-dashboard']);
-            location.reload();
           }
         },
         error => {
@@ -64,6 +86,8 @@ export class LoginComponent implements OnInit {
         }
       );
     } else {
+      this.user.document = '';
+      this.user.email = '';
       this.user.password = '';
       this.loading = false;
       this.notification = new Notification(Notification.Type().Error, "El formulario no es válido. Faltan campos obligatorios.");

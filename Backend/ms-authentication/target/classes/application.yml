@@ -11,6 +11,14 @@ spring:
 server:
      port: 8000
 
+zuul:
+     server: http://localhost
+     port: 9061
+     url: ${zuul.server}:${zuul.port}
+     
+microservices:
+     msclientmanagementv1: ${zuul.url}/ms-client-management/v1/
+
 info.app.name: ms-authentication
 info.app.description: Microservices with Spring Boot and Spring Cloud - ms-authentication
 info.app.version: 0.0.1-SNAPSHOT

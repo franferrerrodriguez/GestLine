@@ -40,6 +40,16 @@ export class AuthService {
     .pipe(map(data => data));
   }
 
+  getBlackList(document: string): Observable<any> {
+    const url = API.msauthenticationv1 + "getBlackList/" + document;
+    return this.http
+      .get<Boolean>(
+        url,
+        { headers: this.headers }
+      )
+    .pipe(map(data => data));
+  }
+  
   setUser(user: User): void {
     let user_string = JSON.stringify(user);
     localStorage.setItem("currentUser", user_string);

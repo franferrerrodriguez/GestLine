@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+import ms.authentication.entity.Client;
 import ms.authentication.entity.db.User;
 import ms.authentication.response.Response;
 import ms.authentication.response.ResponseError;
@@ -158,6 +159,39 @@ public class Controller {
 			if(token != null) {
 				response = new Response<>(token);
 				httpStatus = HttpStatus.OK;
+			} else {
+				response = new Response<>(new ResponseError("Error"));
+				httpStatus = HttpStatus.NOT_FOUND;
+			}
+		} catch (Exception e) {
+			response = new Response<>(new ResponseError("Error"));
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+
+		return new ResponseEntity<>(response, httpStatus);
+		
+	}
+	
+	@RequestMapping(value = "/getBlackList/{document}", method = RequestMethod.GET)
+	@HystrixCommand()
+	public ResponseEntity<Response<Boolean>> getBlackList(@PathVariable String document) throws InterruptedException {
+
+		String port = environment.getProperty("local.server.port");
+
+		LOGGER.info(String.format("Called endpoint: 'getBlackList' | Port: '%s'", port));
+
+		Response<Boolean> response;
+		HttpStatus httpStatus;
+		try {
+			Response<Client> responseClient = authenticationService.getClientByDocument(document);
+			if(responseClient != null) {
+				if(responseClient.getError() == null) {
+					response = new Response<>(responseClient.getResult().getBlacklist());
+					httpStatus = HttpStatus.OK;
+				}else {
+					response = new Response<>(new ResponseError("Error"));
+					httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+				}
 			} else {
 				response = new Response<>(new ResponseError("Error"));
 				httpStatus = HttpStatus.NOT_FOUND;

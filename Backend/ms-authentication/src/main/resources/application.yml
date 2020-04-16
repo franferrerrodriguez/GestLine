@@ -11,6 +11,14 @@ spring:
 server:
      port: 8000
 
+zuul:
+     server: http://localhost
+     port: 9061
+     url: ${zuul.server}:${zuul.port}
+     
+microservices:
+     msclientmanagementv1: ${zuul.url}/ms-client-management/v1/
+
 info.app.name: @project.name@
 info.app.description: @project.description@
 info.app.version: @project.version@
