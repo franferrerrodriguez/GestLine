@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../../environments/environment';
 import { AuthService } from '../../../services/auth/auth.service';
 import { SearchService } from '../../../services/search.service';
 import { Router } from '@angular/router';
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  titleApp: string;
+
   constructor(private router: Router, public authService: AuthService, private searchService:SearchService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.titleApp = environment.packagejson.name;
+  }
   
   searchLine(phone:string){
     this.searchService.searchPhone(phone);

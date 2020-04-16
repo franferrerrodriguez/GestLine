@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
+  packagejson: require('../../package.json'),
   zuul: 'http://localhost:9061',
-  sessionTime: 5
+  sessionTime: 5,
 };
 
 export const environmentAPI = {
