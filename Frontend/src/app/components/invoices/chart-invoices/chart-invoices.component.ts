@@ -18,7 +18,7 @@ export class ChartInvoicesComponent implements OnInit {
   public invoiceChartData:any;
   public document:string;
   public numInvoices:number;
-  public chartType: string = 'bar';
+  public chartType: string = 'horizontalBar';
   public chartDatasets: Array<any> = [{ }];
   public monthLabel: Array<String>;
   public chartSelected:any;

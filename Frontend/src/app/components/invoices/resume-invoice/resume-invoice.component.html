@@ -1,28 +1,26 @@
 <div *ngIf="invoiceResumeData">
     <div class="header-component" data-toggle="collapse" href="#collapseResumeInvoice" aria-expanded="true" aria-controls="collapseExample">
-        {{ title }}
+        {{ title }} - {{ month | uppercase }} ({{ chartSelected.invoiceDate }})
         <i class="fas fa-angle-down rotate-icon"></i>
     </div>
     <div class="collapse show" id="collapseResumeInvoice">
         <div *ngIf="chartSelected">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Factura {{ month }} ({{ chartSelected.invoiceDate }})</h5>
-                </div>
                 <ul class="list-group list-group-flush">
                     <li *ngFor="let invoice of chartSelected.invoices;" class="list-group-item">
-                        <h3>{{ invoice.phone }}</h3>
-                        <span>
-                            <b>Base Imponible: </b>{{ invoice.amount }} € 
+                        <span style="float:left;">
+                            <h3>{{ invoice.phone }}</h3>
+                            <span>
+                                <b>Base Imponible: </b>{{ invoice.amount.toFixed(2) }} € 
+                            </span>
+                            <br>
+                            <span>
+                                <b>I.V.A.: </b>{{ invoice.tax.toFixed(2) }} % 
+                                ({{ invoice.taxAmount.toFixed(2) }} €) 
+                            </span>
                         </span>
-                        <br>
-                        <span>
-                            <b>I.V.A.: </b>{{ invoice.tax }} % 
-                            ({{ invoice.taxAmount }} €) 
-                        </span>
-                        <br>
-                        <span>
-                            <b>Importe Total: </b>{{ invoice.totalAmount }} € 
+                        <span style="float:right;margin-top:25px;">
+                            <h3>Total: {{ invoice.totalAmount.toFixed(2) }} € </h3>
                         </span>
                     </li>
                 </ul>

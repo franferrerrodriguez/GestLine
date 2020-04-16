@@ -34,10 +34,8 @@ export class ResumeInvoiceComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     let utils = new Utils();
-    if(this.chartSelected){
+    if(this.chartSelected)
       this.month = utils.getMonthByNumber(new Date(this.chartSelected.invoiceDate));
-      console.log(this.chartSelected);
-    }
   }
 
   getInvoiceByDocument() {
