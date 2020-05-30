@@ -1,11 +1,17 @@
 package ms.client.management.entity.db;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "client")
@@ -31,7 +37,9 @@ public class Client {
 	private String secondSurname;
 	
 	@Column(name = "birth_date")
-	private String birthDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
 	
 	@Column(name = "email")
 	private String email;
@@ -108,11 +116,11 @@ public class Client {
 		this.secondSurname = secondSurname;
 	}
 
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 

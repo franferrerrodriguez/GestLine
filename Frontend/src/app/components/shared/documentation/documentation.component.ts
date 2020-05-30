@@ -87,10 +87,7 @@ export class DocumentationComponent implements OnInit {
         "value": environment.packagejson.devDependencies[Object.keys(environment.packagejson.devDependencies)[i]]
       });
     }
-
-    console.log(this.scripts);
-    console.log(this.dependencies);
-    console.log(this.devDependencies);
+    
   }
 
 }
