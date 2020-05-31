@@ -22,3 +22,7 @@
 2020-05-30 18:38:43 [hystrix-Controller-5] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
 2020-05-30 18:38:46 [hystrix-Controller-6] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
 2020-05-30 18:39:20 [hystrix-Controller-7] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
+2020-05-30 18:51:25 [hystrix-Controller-8] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
+2020-05-30 19:11:54 [hystrix-Controller-9] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
+2020-05-30 19:21:29 [hystrix-Controller-10] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
+2020-05-30 19:21:38 [hystrix-Controller-10] INFO  m.c.management.controller.Controller - Called endpoint: 'clientByDocument' | Port: '8001'
