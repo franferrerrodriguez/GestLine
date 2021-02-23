@@ -24,7 +24,7 @@ import ms.contract.service.IContractService;
 
 @RestController
 @RequestMapping("v1")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class Controller {
 
 	@Autowired

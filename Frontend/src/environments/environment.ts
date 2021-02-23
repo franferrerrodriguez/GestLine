@@ -5,13 +5,12 @@
 export const environment = {
   production: false,
   packagejson: require('../../package.json'),
-  zuul: 'http://localhost:9061',
-  sessionTime: 5,
+  zuul: 'http://ec2-35-180-55-248.eu-west-3.compute.amazonaws.com:9061',
+  sessionTime: 5
 };
 
 export const environmentAPI = {
-  production: false,
-  zuul: 'http://localhost:9061'
+  zuul: 'http://ec2-35-180-55-248.eu-west-3.compute.amazonaws.com:9061',
 };
 
 export const API = {
