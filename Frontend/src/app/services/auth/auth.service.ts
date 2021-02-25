@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
 import { map } from "rxjs/operators";
-import { isNullOrUndefined } from "util";
 import { User } from '../../models/user.class';
+import { Client } from '../../models/client.class';
 import { environment, API } from '../../../environments/environment';
 
 @Injectable({
@@ -52,26 +52,26 @@ export class AuthService {
   
   setUser(user: User): void {
     let user_string = JSON.stringify(user);
-    localStorage.setItem("currentUser", user_string);
+    sessionStorage.setItem("currentUser", user_string);
   }
 
   setToken(token): void {
-    localStorage.setItem("accessToken", token);
+    sessionStorage.setItem("accessToken", token);
   }
 
   getToken():string {
-    return localStorage.getItem("accessToken");
+    return sessionStorage.getItem("accessToken");
   }
 
   setSessionTime(): void {
-    localStorage.setItem("sessionTime", new Date()
+    sessionStorage.setItem("sessionTime", new Date()
       .setMinutes(new Date()
       .getMinutes() + environment.sessionTime)
       .toString());
   }
 
   getSessionTime():number {
-    return +localStorage.getItem("sessionTime");
+    return +sessionStorage.getItem("sessionTime");
   }
 
   refreshSessionTime(): void {
@@ -96,20 +96,30 @@ export class AuthService {
   }
 
   getCurrentUser(): User {
-    let user_string = localStorage.getItem("currentUser");
-    if (!isNullOrUndefined(user_string)) {
-      let user: User = JSON.parse(user_string);
+    let user: any = sessionStorage.getItem("currentUser");
+    if (user) {
+      user = JSON.parse(user);
       return user;
     } else {
       return null;
     }
   }
 
+  getClientManagementData(): Client {
+    let clientManagementData: any = sessionStorage.getItem("clientManagementData");
+    if (clientManagementData) {
+      clientManagementData = JSON.parse(clientManagementData);
+      return clientManagementData;
+    } else {
+      return null;
+    }
+  }
+
   logoutUser() {
-    localStorage.getItem("accessToken");
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("sessionTime");
+    sessionStorage.removeItem("clientManagementData");
+    sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("sessionTime");
     window.location.reload();
   }
 

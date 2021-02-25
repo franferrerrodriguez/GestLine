@@ -1,20 +1,20 @@
-<nav class="navbar fixed-top subnavbar" *ngIf="clientData">
+<nav class="navbar fixed-top subnavbar" *ngIf="this.authService.getClientManagementData()">
     <span class="navbar-text white-text">
         <div class="h6 left">
-            <span>{{ clientData.name | uppercase }} </span>
-            <span>{{ clientData.firstSurname | uppercase }} </span>
-            <span>{{ clientData.secondSurname | uppercase }} - </span>
-            <span>{{ clientData.document | uppercase }} - </span>
-            <span>{{ clientData.address.type | uppercase }} </span>
-            <span>{{ clientData.address.direction | uppercase }}, </span>
-            <span>Nº{{ clientData.address.number | uppercase }} - </span>
-            <span>{{ clientData.address.location | uppercase }} </span>
-            <span>({{ clientData.address.postalCode | uppercase }}) - </span>
-            <span>{{ clientData.address.province | uppercase }} - </span>
-            <span>{{ clientData.address.country | uppercase }}</span>
+            <span>{{ this.authService.getClientManagementData().name | uppercase }} </span>
+            <span>{{ this.authService.getClientManagementData().firstSurname | uppercase }} </span>
+            <span>{{ this.authService.getClientManagementData().secondSurname | uppercase }} - </span>
+            <span>{{ this.authService.getClientManagementData().document | uppercase }} - </span>
+            <span>{{ this.authService.getClientManagementData().address.type | uppercase }} </span>
+            <span>{{ this.authService.getClientManagementData().address.direction | uppercase }}, </span>
+            <span>Nº{{ this.authService.getClientManagementData().address.number | uppercase }} - </span>
+            <span>{{ this.authService.getClientManagementData().address.location | uppercase }} </span>
+            <span>({{ this.authService.getClientManagementData().address.postalCode | uppercase }}) - </span>
+            <span>{{ this.authService.getClientManagementData().address.province | uppercase }} - </span>
+            <span>{{ this.authService.getClientManagementData().address.country | uppercase }}</span>
         </div>
         <div class="h6 right">
-            SEGMENTO {{ clientData.clientType }}
+            SEGMENTO {{ this.authService.getClientManagementData().clientType }}
         </div>
     </span>
 </nav>

@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
                   this.authService.setToken(data.result.token);
                   this.authService.setSessionTime();
                   this.router.navigate(['lines-dashboard']);
-                  location.reload();
                 } else {
                   console.log(blacklist.error);
                   this.user.document = '';
