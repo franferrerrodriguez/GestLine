@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @EnableAutoConfiguration
 @SpringBootApplication
 @EnableEurekaServer
+@PropertySource("file:config/application_GLOBAL.yml")
 public class EurekaServerApplication {
 
 	public static void main(String[] args) {

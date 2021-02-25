@@ -9,6 +9,7 @@ import { InvoicesComponent }      from './components/invoices/invoices.component
 import { LineservicesComponent }      from './components/lineservices/lineservices.component';
 import { SettingsComponent }      from './components/settings/settings.component';
 import { DocumentationComponent }      from './components/shared/documentation/documentation.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate:[LogoutGuard] },
@@ -25,7 +26,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppRoutingModule { }
