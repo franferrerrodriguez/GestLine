@@ -2,24 +2,23 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+declare var CONFIG_PRE: any;
+
 export const environment = {
   production: false,
   packagejson: require('../../package.json'),
-  //zuul: 'http://localhost:9061',
-  zuul: 'http://ec2-35-180-55-248.eu-west-3.compute.amazonaws.com:9061',
   sessionTime: 5
 };
 
 export const environmentAPI = {
-  //zuul: 'http://localhost:9061',
-  zuul: 'http://ec2-35-180-55-248.eu-west-3.compute.amazonaws.com:9061',
+  zuul: CONFIG_PRE.gateway
 };
 
 export const API = {
-  msauthenticationv1: environment.zuul + '/ms-authentication/v1/',
-  msclientmanagementv1: environment.zuul + '/ms-client-management/v1/',
-  mscontractv1: environment.zuul + '/ms-contract/v1/',
-  msinvoicev1: environment.zuul + '/ms-invoice/v1/'
+  msauthenticationv1: environmentAPI.zuul + '/ms-authentication/v1/',
+  msclientmanagementv1: environmentAPI.zuul + '/ms-client-management/v1/',
+  mscontractv1: environmentAPI.zuul + '/ms-contract/v1/',
+  msinvoicev1: environmentAPI.zuul + '/ms-invoice/v1/'
 };
 
 /*
