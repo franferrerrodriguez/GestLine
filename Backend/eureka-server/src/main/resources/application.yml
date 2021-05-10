@@ -4,7 +4,6 @@ server:
 
 spring:
      # Spring Application Config
-     profile: ${profile}
      application:
           name: eureka-server
           
@@ -14,16 +13,8 @@ spring:
                uri: http://localhost:8888
                
 eureka:
-     instance:
-          instanceId: ${hostName}:${spring.application.name}:${server.port}
-          hostname: ${hostName}
-          lease-renewal-interval-in-seconds: 30
-          lease-expiration-duration-in-seconds: 90
      client:
           fetchRegistry: true
           registerWithEureka: true
-          serviceUrl:
-               defaultZone:
-                    http://ec2-15-237-150-199.eu-west-3.compute.amazonaws.com:8761/eureka/,http://ec2-15-188-193-239.eu-west-3.compute.amazonaws.com:8761/eureka/
 initialMemoryMin: -Xms512m
 initialMemoryMax: -Xmx512m

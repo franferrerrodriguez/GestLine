@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     this.authService.checkSessionTime();
   }
 
-  @HostListener('document:click',['$event'])
+  @HostListener('document:click', ['$event'])
   documentClick(event: MouseEvent) {
     this.authService.refreshSessionTime();
   }
@@ -26,21 +26,25 @@ export class AppComponent implements OnInit {
     this.authService.refreshSessionTime();
   }
 
-  validateToken():any {
-    if(this.authService.getCurrentUser()) {
+  // Comentamos esto ya que la base de datos de nuestros microservicios son ficticias con H2
+  // y al tener distintas réplicas, crea conflictos en el Token del servidor
+  validateToken() {
+    /*if(this.authService.getCurrentUser()) {
       return this.authService
       .getTokenServer(this.authService.getCurrentUser().document)
       .subscribe(
         data => {
-          if(this.authService.getToken() != data.result)
+          console.log("Token Session: " + this.authService.getToken());
+          console.log("Token Server: " + data.result);
+          if(this.authService.getToken() !== data.result)
             this.authService.logoutUser();
         },
         error => {
           console.log(error);
-          this.authService.logoutUser();
+          //this.authService.logoutUser();
         }
       );
-    }
+    }*/
   }
   
 }

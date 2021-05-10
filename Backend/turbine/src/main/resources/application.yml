@@ -1,0 +1,30 @@
+# Config
+server:
+     port: 8989
+
+spring:
+     # Spring Application Config
+     profile: ${profile}
+     application:
+          name: turbine
+          
+     # Spring Cloud Config
+     #cloud:
+          #config:
+               #uri: http://localhost:8888
+eureka:
+     client:
+          serviceUrl:
+               defaultZone:
+                    http://ec2-15-237-150-199.eu-west-3.compute.amazonaws.com:8761/eureka/,http://ec2-15-188-193-239.eu-west-3.compute.amazonaws.com:8761/eureka/
+management:
+     endpoints:
+          web:
+               exposure:
+                    include: '*'
+turbine:
+     app-config: ms-authentication,ms-client-management,ms-contract,ms-invoice
+     cluster-name-expression: new String("default")
+
+initialMemoryMin: -Xms512m
+initialMemoryMax: -Xmx512m

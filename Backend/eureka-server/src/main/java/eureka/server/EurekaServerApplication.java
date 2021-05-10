@@ -11,7 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 @EnableAutoConfiguration
 @SpringBootApplication
 @EnableEurekaServer
-@PropertySource("file:config/application_GLOBAL.yml")
 public class EurekaServerApplication {
 
 	public static void main(String[] args) {
