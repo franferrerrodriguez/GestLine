@@ -11,7 +11,7 @@ insert into billing(id, entity, office, dc, account, address)
 values(1, 'ES26', '1465', '1465', '713182825355', 2);
 
 insert into client(document, document_type, client_type, name, first_surname, second_surname, birth_date, email, online_invoice, due, limit_due, blacklist, address, billing) 
-values('48640904K', 'NIF', 'RESIDENCIAL', 'Francisco José', 'Ferrer', 'Rodríguez', '1991-09-25', 'fran@fran.com', 1, 0, 2000, 0, 1, 1);
+values('48640904K', 'NIF', 'RESIDENCIAL', 'Francisco José', 'Ferrer', 'Rodríguez', '1991-09-25', 'fran@correo.com', 1, 0, 2000, 0, 1, 1);
 
 /* -------- */
 /* CLIENT 2 */
@@ -26,4 +26,4 @@ insert into billing(id, entity, office, dc, account, address)
 values(2, 'ES20', '2100', '2100', '512329869744', 4);
 
 insert into client(document, document_type, client_type, name, first_surname, second_surname, birth_date, email, online_invoice, due, limit_due, blacklist, address, billing) 
-values('48642036A', 'NIF', 'RESIDENCIAL', 'Amanda', 'Ortuño', 'Valencia', '1991-02-04', 'amanda@amanda.com', 1, 0, 2000, 0, 1, 1);
+values('48642837M', 'NIF', 'RESIDENCIAL', 'Alejandro', 'Ferrer', 'Rodríguez', '2002-02-04', 'alex@correo.com', 1, 0, 2000, 0, 1, 1);
