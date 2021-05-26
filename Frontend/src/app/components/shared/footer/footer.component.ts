@@ -27,8 +27,8 @@ export class FooterComponent implements OnInit {
     this.description = `GestLine es una aplicación web que simula un área de clientes
      de una compañía de telecomunicaciones. Está desarrollada en tecnologías Angular 
      (Frontend) y Java (Backend) como proyecto final del Ciclo Formativo de Grado 
-     Superior en Desarrollo de Aplicaciones Multiplataforma impartido en el I.E.S. 
-     San Vicente.`;
+     Superior en Desarrollo de Aplicaciones Web impartido en el I.E.S. 
+     San Severo Ochoa.`;
   }
 
   ngOnInit(): void {
